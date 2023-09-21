@@ -17,11 +17,11 @@ Implemented features will be uploaded later.
 
 <table border="2">
     <tr align="center">
-        <td>@Saeyeonn<a href="https://github.com/saeyeonn"></td>
-        <td>@TPRPT<a href="https://github.com/TPRPT"></td>
-        <td>@no-glass-otacku<a href="https://github.com/no-glass-otacku"></td>
-        <td>@ChanHHaeng<a href="https://github.com/ChanHHaeng"></td>
-        <td>@OhHuijin<a href="https://github.com/OhHuijin"></td>  
+        <td><a href="https://github.com/saeyeonn">@Saeyeonn</td>
+        <td><a href="https://github.com/TPRPT">@TPRPT</td>
+        <td><a href="https://github.com/no-glass-otacku">@no-glass-otacku</td>
+        <td><a href="https://github.com/ChanHHaeng">@ChanHHaeng</td>
+        <td><a href="https://github.com/OhHuijin">@OhHuijin</td>  
     </tr>
 </table>
 
