@@ -11,7 +11,7 @@ public class Panel extends JPanel {
         mainPanel.setLayout(new FlowLayout());
 
         JPanel miniBar = new JPanel();
-        miniBar.setBackground(Color.LIGHT_GRAY);
+        miniBar.setBackground(new Color(222, 237, 239));
         miniBar.setPreferredSize(new Dimension(200, 30));
         miniBar.setLocation(600,50);
 

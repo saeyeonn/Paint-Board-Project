@@ -9,7 +9,6 @@ public class Frame extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1000, 600);
         setLocationRelativeTo(null);
-        setVisible(true);
 
         ImageIcon imageIcon = new ImageIcon("src/ImageSource/paintBoard.png");
         setIconImage(imageIcon.getImage());
