@@ -13,7 +13,8 @@ public class PaintBoardApplication {
 
         ToolBar toolBar = new ToolBar();
         frame.add(toolBar, BorderLayout.WEST);
-        toolBar.createToolBar(toolBar);
+
+        frame.setVisible(true);
     }
 
     public static void main(String[] args) {

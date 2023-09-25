@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b9e3f5cc-0230-478d-9a41-162286b65db6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImageSource/Bold.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageSource/ToolBar/Bold.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImageSource/after.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageSource/MiniBar/after.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImageSource/backgroundColor.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageSource/ToolBar/backgroundColor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImageSource/brush.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageSource/ToolBar/brush.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImageSource/colorPalette.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageSource/ToolBar/colorPalette.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImageSource/cut.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageSource/ToolBar/cut.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImageSource/deleteAll.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageSource/ToolBar/deleteAll.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImageSource/group.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageSource/ToolBar/group.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImageSource/line.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageSource/ToolBar/lineCol.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImageSource/lineEraser.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageSource/ToolBar/lineEraser.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImageSource/open.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageSource/ToolBar/open.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImageSource/paste.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageSource/ToolBar/paste.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImageSource/pencil.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageSource/ToolBar/pencil.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImageSource/pixelEraser.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageSource/ToolBar/pixelEraser.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImageSource/previous.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageSource/MiniBar/previous.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImageSource/save.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageSource/ToolBar/save.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImageSource/shapeColor.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageSource/ToolBar/shapeColor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImageSource/textBox.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageSource/ToolBar/textBox.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImageSource/ungroup.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageSource/ToolBar/ungroup.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImageSource/zoomIn.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageSource/MiniBar/zoomIn.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImageSource/zoomOut.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageSource/MiniBar/zoomOut.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Window/PaintBoardApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Window/PaintBoardApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Window/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Window/Panel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Window/ToolBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Window/ToolBar.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2VsUxkwGxOMU2qGH6xdYBtfBNSk" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\saeye\Desktop\Semester\Data Structure\PaintBoard\src\ImageSource" />
+      <recent name="C:\Users\saeye\Desktop\Semester\Data Structure\PaintBoard\src\ImageSource\ToolBar" />
+      <recent name="C:\Users\saeye\Desktop\Semester\Data Structure\PaintBoard\src\ImageSource\MiniBar" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Window" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="PaintBoardApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Window.PaintBoardApplication" />
+      <module name="PaintBoard" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Window.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.PaintBoardApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b9e3f5cc-0230-478d-9a41-162286b65db6" name="Changes" comment="" />
+      <created>1695624533443</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1695624533443</updated>
+      <workItem from="1695624534648" duration="5544000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
