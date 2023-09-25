@@ -1,27 +1,19 @@
 package Window;
 
 import javax.swing.*;
-import javax.tools.Tool;
 import java.awt.*;
 
-public class PaintBoardApplication extends JFrame{
+public class PaintBoardApplication {
     public PaintBoardApplication() {
-        setTitle("Paint Board");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(1000, 600);
-        setLocationRelativeTo(null);
+        Frame frame = new Frame();
+        frame.createFrame();
 
-        ImageIcon imageIcon = new ImageIcon("src/ImageSource/paintBoard.png");
-        setIconImage(imageIcon.getImage());
+        Panel panel = new Panel();
+        panel.createPanel(frame);
 
-        BoardPanel boardPanel = new BoardPanel();
-        add(boardPanel, BorderLayout.CENTER);
-
-        JToolBar jToolBar = new JToolBar();
         ToolBar toolBar = new ToolBar();
-        add(jToolBar, BorderLayout.WEST);
-        toolBar.createToolBar(jToolBar);
-        setVisible(true);
+        frame.add(toolBar, BorderLayout.WEST);
+        toolBar.createToolBar(toolBar, 200, 400);
     }
 
     public static void main(String[] args) {
