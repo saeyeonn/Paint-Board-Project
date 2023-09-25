@@ -14,13 +14,8 @@ public class Panel extends JPanel {
         miniBar.setBackground(Color.LIGHT_GRAY);
         miniBar.setPreferredSize(new Dimension(200, 30));
         miniBar.setBounds(600, 50, 200, 30);
+
         mainPanel.add(miniBar, BorderLayout.NORTH);
-
         frame.add(mainPanel);
-
-        JToolBar sideToolBar = new JToolBar();
-        ToolBar mySideToolBar = new ToolBar();
-        frame.add(sideToolBar, BorderLayout.WEST);
-        mySideToolBar.createToolBar(sideToolBar, 200, 400);
     }
 }
