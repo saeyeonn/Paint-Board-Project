@@ -4,19 +4,18 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ToolBar extends JToolBar {
-        JToolBar bar = new JToolBar();
 
-        public void createToolBar(JToolBar bar, int width, int height) {
-                this.bar = bar;
-                bar.setPreferredSize(new Dimension(width, height));
+        public void createToolBar(ToolBar bar) {
+                bar.setPreferredSize(new Dimension(200, 400));
                 bar.setBackground(Color.LIGHT_GRAY);
                 bar.setLayout(new FlowLayout());
                 imageIconProcess(bar);
+
         }
 
         public void imageIconProcess(JToolBar bar) {
 
-                this.bar = bar;
+//                this.bar = bar;
                 String[] iconList = {"backgroundColor", "brush", "deleteAll", "group", "ungroup", "open", "lineCol", "lineEraser", "paste", "save", "pixelEraser", "save", "shapeColor", "textBox"};
 
                 ImageIcon[] orgIcon = new ImageIcon[iconList.length];
