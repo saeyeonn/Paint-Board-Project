@@ -1,3 +1,7 @@
+.gitignore
+.idea
+PaintBoard.iml
+
 ### IntelliJ IDEA ###
 out/
 !**/src/main/**/out/
