@@ -13,7 +13,7 @@ public class Panel extends JPanel {
         JPanel miniBar = new JPanel();
         miniBar.setBackground(Color.LIGHT_GRAY);
         miniBar.setPreferredSize(new Dimension(200, 30));
-        miniBar.setBounds(600, 50, 200, 30);
+        miniBar.setLocation(600,50);
 
         mainPanel.add(miniBar, BorderLayout.NORTH);
         frame.add(mainPanel);
