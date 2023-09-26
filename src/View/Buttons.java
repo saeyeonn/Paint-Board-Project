@@ -21,49 +21,27 @@ public class Buttons {
 
         for (int i = 0; i < iconList.length; i++) {
             if (iconList[i].equals("zoomIn") || iconList[i].equals("zoomOut"))
-                Icon[i] = createImageIcon("src/ImageSource/" + iconList[i] + ".png", 24, 24);
-            else Icon[i] = createImageIcon("src/ImageSource/" + iconList[i] + ".png", 30, 30);
+                Icon[i] = createImageIcon("src/ImageSource/" + iconList[i] + ".png", 15, 15);
+            if (iconList[i].equals("rectangularBox1"))
+                Icon[i] = createImageIcon("src/ImageSource/" + iconList[i] + ".png", 100, 30);
+
+           else Icon[i] = createImageIcon("src/ImageSource/" + iconList[i] + ".png", 30, 30);
         }
         for (int i = 0; i < Buttons.length; i++) {
             Buttons[i] = new JButton(Icon[i]);
             container.add(Buttons[i]);
             Buttons[i].setName("img" + iconList[i]);
 
-            Buttons[i].setPreferredSize(new Dimension(40, 40));
+            if (Buttons[i].getName().equals("imgrectangularBox1"))
+                Buttons[i].setPreferredSize(new Dimension(105, 35));
+            else Buttons[i].setPreferredSize(new Dimension(35, 35));
             Buttons[i].setFocusPainted(false);
             Buttons[i].setBorderPainted(false);
             Buttons[i].setContentAreaFilled(false);
 
-            int finalI = i;
-            Buttons[i].addFocusListener(new FocusListener() {
-                @Override
-                public void focusGained(FocusEvent e) {
-                    JButton srcButton = (JButton) e.getSource();
-                    srcButton.setBorderPainted(true);
-                }
+            clickAction(Buttons[i], Icon[i]);
 
-                @Override
-                public void focusLost(FocusEvent e) {
-                    JButton srcButton = (JButton) e.getSource();
-                    srcButton.setBorderPainted(false);
-                }
-            });
-
-            Buttons[i].addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    System.out.println("clicked " + iconList[finalI]);
-                }
-            });
-
-            if (iconList[i].equals("more")) {
-                Buttons[i].addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        Color selectedColor = JColorChooser.showDialog(frame, "Color Chooser", Color.LIGHT_GRAY);
-                    }
-                });
-            }
+            if (iconList[i].equals("more")) selectColor(Buttons[i], frame);
 
         }
     }
@@ -74,5 +52,31 @@ public class Buttons {
         Image scaledImage = orgImag.getScaledInstance(width, height, Image.SCALE_SMOOTH);
 
         return new ImageIcon(scaledImage);
+    }
+
+    // maybe should mv below 2 methods to other package while implementing controller
+    public void clickAction(JButton button, ImageIcon imageIcon) {
+        button.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                JButton srcButton = (JButton) e.getSource();
+                srcButton.setBorderPainted(true);
+            }
+            @Override
+            public void focusLost(FocusEvent e) {
+                JButton srcButton = (JButton) e.getSource();
+                srcButton.setBorderPainted(false);
+            }
+        });
+    }
+
+    public void selectColor(JButton moreButton, Frame frame) {
+        moreButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Color selectedColor = JColorChooser.showDialog(frame, "Color Chooser", Color.LIGHT_GRAY);
+            }
+        });
+
     }
 }

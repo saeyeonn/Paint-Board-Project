@@ -4,7 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ToolBar extends JToolBar {
-        private static final String[] iconList = {"backgroundColor", "brush", "deleteAll", "group", "ungroup", "open", "lineEraser", "paste", "save", "pixelEraser", "save", "shapeColor", "textBox","line", "square", "triangle", "circle", "red", "yellow", "green", "blue", "black", "white", "more"};
+        private static final String[] iconList = {"save", "open", "group", "ungroup", "red", "yellow", "green",
+                "backgroundColor", "blue", "brown", "grey", "shapeColor", "black", "white", "more",
+                "deleteAll", "lineEraser", "pixelEraser", "cut", "paste", "line", "square", "triangle", "circle",
+                "pencil", "rectangularBox1", "brush", "rectangularBox1", "spray", "rectangularBox1", "textBox", "rectangularBox1"};
 
         public ToolBar(Frame frame) {
                 setPreferredSize(new Dimension(200, 400));

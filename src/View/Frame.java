@@ -7,7 +7,7 @@ public class Frame extends JFrame{
     public JFrame createFrame() {
         setTitle("Paint Board");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(1000, 600);
+        setSize(1000, 480);
         setLocationRelativeTo(null);
 
         ImageIcon imageIcon = new ImageIcon("src/ImageSource/paintBoard.png");

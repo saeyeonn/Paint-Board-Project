@@ -13,7 +13,7 @@ public class Panel{
 
         JPanel miniBar = new JPanel();
         miniBar.setBackground(new Color(222, 237, 239));
-        miniBar.setPreferredSize(new Dimension(200, 50));
+        miniBar.setPreferredSize(new Dimension(250, 45));
         miniBar.setLocation(600,50);
 
         String[] iconList = {"previous", "after", "zoomIn", "zoomOut"};
