@@ -3,7 +3,6 @@ package Window;
 import javax.swing.*;
 
 import java.awt.*;
-import java.awt.Button;
 
 public class Panel extends JPanel {
     public void createPanel(Frame frame) {
@@ -14,12 +13,11 @@ public class Panel extends JPanel {
 
         JPanel miniBar = new JPanel();
         miniBar.setBackground(new Color(222, 237, 239));
-        miniBar.setPreferredSize(new Dimension(200, 30));
+        miniBar.setPreferredSize(new Dimension(200, 40));
         miniBar.setLocation(600,50);
 
         String[] iconList = {"previous", "after", "zoomIn", "zoomOut"};
-        Button  button = new Button(miniBar, iconList)
-
+        Buttons buttons = new Buttons(miniBar, iconList);
 
         mainPanel.add(miniBar, BorderLayout.NORTH);
         frame.add(mainPanel);
