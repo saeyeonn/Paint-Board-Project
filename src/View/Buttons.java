@@ -10,11 +10,11 @@ import java.awt.event.FocusListener;
 public class Buttons {
     private ImageIcon[] Icon;
 
-    public Buttons(Container container, String[] iconList) {
-        createButton(container, iconList);
+    public Buttons(Container container, String[] iconList, Frame frame) {
+        createButton(container, iconList, frame);
     }
 
-    public void createButton(Container container, String[] iconList) {
+    public void createButton(Container container, String[] iconList, Frame frame) {
 
         Icon = new ImageIcon[iconList.length];
         JButton[] Buttons = new JButton[iconList.length];
@@ -55,6 +55,15 @@ public class Buttons {
                     System.out.println("clicked " + iconList[finalI]);
                 }
             });
+
+            if (iconList[i].equals("more")) {
+                Buttons[i].addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        Color selectedColor = JColorChooser.showDialog(frame, "Color Chooser", Color.LIGHT_GRAY);
+                    }
+                });
+            }
 
         }
     }

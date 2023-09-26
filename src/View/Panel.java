@@ -4,7 +4,7 @@ import javax.swing.*;
 
 import java.awt.*;
 
-public class Panel extends JPanel {
+public class Panel{
     public void createPanel(Frame frame) {
 
         JPanel mainPanel = new JPanel();
@@ -17,7 +17,7 @@ public class Panel extends JPanel {
         miniBar.setLocation(600,50);
 
         String[] iconList = {"previous", "after", "zoomIn", "zoomOut"};
-        Buttons buttons = new Buttons(miniBar, iconList);
+        Buttons buttons = new Buttons(miniBar, iconList, frame);
 
         mainPanel.add(miniBar, BorderLayout.NORTH);
         frame.add(mainPanel);
