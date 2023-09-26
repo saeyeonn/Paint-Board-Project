@@ -3,12 +3,11 @@ package Window;
 import javax.swing.*;
 import java.awt.*;
 
-public class Button {
+public class Buttons {
     private ImageIcon[] orgIcon;
     private ImageIcon[] chgIcon;
 
-    public Button(Container container, String[] iconList) {
-
+    public Buttons(Container container, String[] iconList) {
         createButton(container, iconList);
     }
 
@@ -18,9 +17,11 @@ public class Button {
         chgIcon = new ImageIcon[iconList.length];
         JButton[] Buttons = new JButton[iconList.length];
 
-        for (int i = 0; i < iconList.length; i++)
-            orgIcon[i] = createImageIcon("src/ImageSource/" + iconList[i] + ".png", 30, 30);
-
+        for (int i = 0; i < iconList.length; i++) {
+            if (iconList[i].equals("zoomIn") || iconList[i].equals("zoomOut"))
+                orgIcon[i] = createImageIcon("src/ImageSource/" + iconList[i] + ".png", 24, 24);
+            else orgIcon[i] = createImageIcon("src/ImageSource/" + iconList[i] + ".png", 30, 30);
+        }
         for (int i = 0; i < Buttons.length; i++) {
             Buttons[i] = new JButton(orgIcon[i]);
             container.add(Buttons[i]);
