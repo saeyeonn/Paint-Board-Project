@@ -1,4 +1,4 @@
-package Window;
+package View;
 
 import javax.swing.*;
 
@@ -13,7 +13,7 @@ public class Panel extends JPanel {
 
         JPanel miniBar = new JPanel();
         miniBar.setBackground(new Color(222, 237, 239));
-        miniBar.setPreferredSize(new Dimension(200, 40));
+        miniBar.setPreferredSize(new Dimension(200, 50));
         miniBar.setLocation(600,50);
 
         String[] iconList = {"previous", "after", "zoomIn", "zoomOut"};
