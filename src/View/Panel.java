@@ -1,10 +1,10 @@
-package Window;
+package View;
 
 import javax.swing.*;
 
 import java.awt.*;
 
-public class Panel extends JPanel {
+public class Panel{
     public void createPanel(Frame frame) {
 
         JPanel mainPanel = new JPanel();
@@ -13,11 +13,11 @@ public class Panel extends JPanel {
 
         JPanel miniBar = new JPanel();
         miniBar.setBackground(new Color(222, 237, 239));
-        miniBar.setPreferredSize(new Dimension(200, 40));
+        miniBar.setPreferredSize(new Dimension(250, 45));
         miniBar.setLocation(600,50);
 
         String[] iconList = {"previous", "after", "zoomIn", "zoomOut"};
-        Buttons buttons = new Buttons(miniBar, iconList);
+        Buttons buttons = new Buttons(miniBar, iconList, frame);
 
         mainPanel.add(miniBar, BorderLayout.NORTH);
         frame.add(mainPanel);
