@@ -30,6 +30,9 @@ public class Buttons {
             container.add(buttons[i]);
             buttons[i].setName("img" + iconList[i]);
 
+            if (buttons[i].getName().equals("imgafter"))
+                container.add(Box.createHorizontalStrut(30));
+
             if (buttons[i].getName().equals("imgrectangularBox1"))
                 buttons[i].setPreferredSize(new Dimension(105, 35));
             else buttons[i].setPreferredSize(new Dimension(35, 35));
@@ -79,11 +82,8 @@ public class Buttons {
     }
 
     public void selectColor(JButton moreButton, Frame frame) {
-        moreButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Color selectedColor = JColorChooser.showDialog(frame, "Color Chooser", Color.LIGHT_GRAY);
-            }
+        moreButton.addActionListener(e -> {
+            Color selectedColor = JColorChooser.showDialog(frame, "Color Chooser", Color.LIGHT_GRAY);
         });
     }
 }
