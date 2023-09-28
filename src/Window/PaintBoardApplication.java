@@ -11,7 +11,7 @@ public class PaintBoardApplication {
         Panel panel = new Panel();
         panel.createPanel(frame);
 
-        ToolBar toolBar = new ToolBar();
+        ToolBar toolBar = new ToolBar(frame);
         frame.add(toolBar, BorderLayout.WEST);
 
         frame.setVisible(true);
