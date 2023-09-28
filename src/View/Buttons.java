@@ -35,15 +35,19 @@ public class Buttons extends JButton{
             buttons[i].setName("button-" + iconList[i]);
             applyButtonsStyle(container, buttons[i]);
             if (iconList[i].equals("more")) selectColor(buttons[i], frame);
-            if (buttons[i].getName().equals("button-lineType")) {
-                JComboBox<String> lineBoldComboBox = new JComboBox<>(new String[] {"line 3pt", "line 6pt", "line 9pt"});
-                lineBoldComboBox.setPreferredSize(new Dimension(180, 30));
-                container.add(lineBoldComboBox);
+            if (buttons[i].getName().equals("button-lineType")) { container.add(createLineBoldBox());
+
             }
             container.add(buttons[i]);
             clickAction(buttons[i]);
         }
         createTextBoxSetting(container);
+    }
+
+    private Component createLineBoldBox() {
+        JComboBox<String> lineBoldComboBox = new JComboBox<>(new String[] {"line 3pt", "line 6pt", "line 9pt"});
+        lineBoldComboBox.setPreferredSize(new Dimension(180, 30));
+        return lineBoldComboBox;
     }
 
     private void applyButtonsStyle(Container container, JButton button) {
