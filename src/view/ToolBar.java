@@ -1,10 +1,11 @@
-package View;
+package view;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class ToolBar extends JToolBar {
-        private static final String[] iconList = {"save", "open", "group", "ungroup", "red", "yellow", "green",
+
+        private final String[] toolBarIconList = {"save", "open", "group", "ungroup", "red", "yellow", "green",
                 "backgroundColor", "blue", "brown", "grey", "shapeColor", "black", "white", "more", "deleteAll",
                 "line", "square", "triangle", "circle", "lineEraser", "pixelEraser", "cut", "paste",
                 "pencil", "brush", "spray", "textBox"};
@@ -13,8 +14,7 @@ public class ToolBar extends JToolBar {
                 setPreferredSize(new Dimension(190, 300));
                 setBackground(new Color(222, 237, 239));
                 setLayout(new FlowLayout());
-                Buttons buttons = new Buttons(this, iconList, frame);
-
+                Buttons buttons = new Buttons(this, toolBarIconList, frame);
         }
 
         protected void paintComponent(Graphics graphics) {
