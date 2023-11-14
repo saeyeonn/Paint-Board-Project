@@ -21,6 +21,7 @@ public class ToolBarForm extends JToolBar {
             if (button.getName().equals("16_reset") || button.getName().equals("17_line")) {
                 add(Box.createVerticalStrut(1));
             } else if (button.getName().equals("21_lineEraser")) {
+                // line design box
                 add(Box.createVerticalStrut(50));
                 add(LabelBoxForm.getLineTypeLabel());
                 add(LineBoxForm.getLineTypeBox());
@@ -31,7 +32,7 @@ public class ToolBarForm extends JToolBar {
 
             add(button);
         }
-
+        // text box
         add(Box.createVerticalStrut(50));
         add(TextComboBoxForm.getFontComboBox());
         add(Box.createHorizontalStrut(2));
@@ -39,12 +40,6 @@ public class ToolBarForm extends JToolBar {
         add(Box.createHorizontalStrut(5));
         add(TextCheckBoxForm.getFontBoldBox());
         add(TextCheckBoxForm.getFontUnderLineBox());
-    }
-
-    private void addVerticalGap(int width) {
-        add(Box.createVerticalGlue());
-        add(Box.createRigidArea(new Dimension(width, 0))); // Adjust the height as needed
-        add(Box.createVerticalGlue());
     }
 
     protected void paintComponent(Graphics graphics) {
