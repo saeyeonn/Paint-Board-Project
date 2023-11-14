@@ -1,4 +1,4 @@
-package Zoom;
+package zoom;
 
 public enum Zoom {
     IN,
