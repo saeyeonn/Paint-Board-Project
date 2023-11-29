@@ -12,6 +12,7 @@ public class ImageConverter {
 
     public static ImageIcon getIconImage (String filepath, String buttonName){
 
+        // set image size
         if (buttonName.equals("zoomIn") || buttonName.equals("zoomOut")) {
             width = height = 25;
         } else if (buttonName.equals("1pt")|| buttonName.equals("3pt")|| buttonName.equals("6pt") || buttonName.equals("9pt")
@@ -21,6 +22,7 @@ public class ImageConverter {
             width = 190; height = 45;
         }
 
+        // generate scaled imageIcon
         Image scaledImage = new ImageIcon(filepath +"/"+ buttonName + ".png")
                 .getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
 

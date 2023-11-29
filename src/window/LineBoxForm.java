@@ -6,6 +6,7 @@ import java.awt.*;
 
 public class LineBoxForm extends JComboBox<ImageIcon>{
 
+    // set resources
     private static String typeFilePath = "src/resource/lineType";
     private static String boldFilePath = "src/resource/lineBold";
     private static ImageIcon[] typeIconList = {ImageConverter.getIconImage(typeFilePath, "dash"),
@@ -18,7 +19,7 @@ public class LineBoxForm extends JComboBox<ImageIcon>{
     private static final LineBoxForm lineTypeBox = new LineBoxForm(typeIconList);
     private static final LineBoxForm lineBoldBox = new LineBoxForm(boldIconList);
 
-    private LineBoxForm(ImageIcon[] imageIconList) {
+    private LineBoxForm(ImageIcon[] imageIconList) { // add choices
         setPreferredSize(new Dimension(80, 30));
         for (ImageIcon imageIcon : imageIconList) {
             addItem(imageIcon);

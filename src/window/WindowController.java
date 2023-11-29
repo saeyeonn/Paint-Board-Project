@@ -1,6 +1,7 @@
 package window;
 
-public class WindowController {
+public class
+WindowController {
     private WindowController() {
     }
 
