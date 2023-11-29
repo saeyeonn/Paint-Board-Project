@@ -15,7 +15,7 @@ public class FrameForm extends JFrame {
         ImageIcon imageIcon = new ImageIcon("src/resource/paintBoard.png");
         setIconImage(imageIcon.getImage());
 
-        add(new PanelForm());
+        add(new PanelForm()); //뒷 배경
         add(new ToolBarForm(), BorderLayout.WEST);
 
         setVisible(true);
