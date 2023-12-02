@@ -2,28 +2,26 @@ package button;
 
 import javax.swing.*;
 import java.awt.*;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
 public class ImageConverter {
     private static int width = 25, height = 25;
-    private ImageConverter () {
+
+    private ImageConverter() {
     }
 
-    public static ImageIcon getIconImage (String filepath, String buttonName){
+    public static ImageIcon getIconImage(String filepath, String buttonName) {
 
         // set image size
         if (buttonName.equals("zoomIn") || buttonName.equals("zoomOut")) {
             width = height = 25;
-        } else if (buttonName.equals("1pt")|| buttonName.equals("3pt")|| buttonName.equals("6pt") || buttonName.equals("9pt")
+        } else if (buttonName.equals("1pt") || buttonName.equals("3pt") || buttonName.equals("6pt") || buttonName.equals("9pt")
                 || buttonName.equals("dot") || buttonName.equals("dash") || buttonName.equals("solid")) {
-            width = 70; height = 40;
-        } else if (buttonName.equals("lineType") || buttonName.equals("lineBold")) {
-            width = 190; height = 45;
+            width = 70;
+            height = 40;
         }
 
         // generate scaled imageIcon
-        Image scaledImage = new ImageIcon(filepath +"/"+ buttonName + ".png")
+        Image scaledImage = new ImageIcon(filepath + "/" + buttonName + ".png")
                 .getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
 
         return new ImageIcon(scaledImage);
