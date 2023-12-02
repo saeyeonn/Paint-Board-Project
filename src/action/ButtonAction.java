@@ -18,10 +18,10 @@ public class ButtonAction implements ActionListener {
         if (Name.equals("25_pen")) {
             // Pen 버튼을 눌렀을 때 
             Pen pen= new Pen();
-            pen.draw((Button) selectButton);
-        } else if (Name.equals("")) {
-            //쭉 밑으로 버튼마다의 기능 연결
-
+            //pen.draw((Button) selectButton);
+        } else if (Name.equals("28_textBox")) {
+            TextBox textBox = new TextBox();
+            textBox.setCreating();
         }
     }
 

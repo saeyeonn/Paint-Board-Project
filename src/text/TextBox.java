@@ -33,7 +33,9 @@ public class TextBox {
             JTextField newTextBox = createTextBox(e.getX(), e.getY(), "New Text Box");
             addTextBoxListener(newTextBox); // 마우스 클릭 이벤트 리스너 등록
             panel.add(newTextBox); // 패널에 TB 추가
+            BoldUnderline.textCilcked(newTextBox); // 체크 박스 상태칸  만들기
             panel.repaint(); // 컴포넌트 추가했으므로 새로운 상태로 화면 갱신
+            pickCurrent(newTextBox); // 생성된 것을 우선 선택
             isTextBoxCreating = false; // 생성 종료
             panel.requestFocusInWindow(); // 텍스트 박스가 생성되자마자 패널에 포커스를 이동
 
@@ -92,13 +94,19 @@ public class TextBox {
         textField.addMouseListener(new MouseAdapter() { // JTextField에 마우스 이벤트 처리 인스턴스 등록
             @Override
             public void mouseClicked(MouseEvent e) { // 마우스 클릭 발생시
-                if (selectedTextBox != null) { // 선택 된 TB가 있다면 
-                    setUnselectedStyle(selectedTextBox); // 기존에 선택 되었던 박스의 테두리를 원상 복귀
-                }
-                selectedTextBox = textField; // 현재 클릭된 박스를 선택 대상으로 설정
-                setSelectedStyle(selectedTextBox); // 현재 클릭된 박스의 테두리 강조
+                pickCurrent(textField);
             }
         });
+    }
+
+    // 마우스 클릭에 대한 동작 (선택에 대한 테두리 변화)
+    private static void pickCurrent(JTextField textField) {
+        if (selectedTextBox != null) { // 선택 된 TB가 있다면 
+            setUnselectedStyle(selectedTextBox); // 기존에 선택 되었던 박스의 테두리를 원상 복귀
+        }
+        selectedTextBox = textField; // 현재 클릭된 박스를 선택 대상으로 설정
+        setSelectedStyle(selectedTextBox); // 현재 클릭된 박스의 테두리 강조
+        BoldUnderline.textCilcked(selectedTextBox);
     }
 
     // 테두리 강조
