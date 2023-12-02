@@ -14,7 +14,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
-public class ToolBar {
+public class ToolBar extends JToolBar{
     private final JPanel panel;
 
     public ToolBar() {
@@ -55,9 +55,11 @@ public class ToolBar {
         toolbarPanel.add(Box.createHorizontalStrut(5));
         toolbarPanel.add(TextCheckBoxForm.getFontBoldBox());
         toolbarPanel.add(TextCheckBoxForm.getFontUnderLineBox());
-
         this.panel = toolbarPanel;
+
+
     }
+
 
     public static ToolBar create() {
         return new ToolBar();
@@ -66,4 +68,26 @@ public class ToolBar {
     public JPanel getPanel() {
         return panel;
     }
+
+
+    protected void paintComponent(Graphics graphics) {
+        super.paintComponent(graphics);
+        // Set and Display Color List External Box line
+        int colStartX = 20, colStartY = 44, colWidth = 120, colHeight = 118;
+        int colArcWidth = 7, colArcHeight = 7;
+
+        Graphics2D g= (Graphics2D) graphics;
+        graphics.setColor(Color.BLACK);
+        (g).setStroke(new BasicStroke(1));
+        graphics.drawRoundRect(colStartX, colStartY, colWidth, colHeight, colArcWidth, colArcHeight);
+
+        // Set and Display Shape List External Box Line
+        int shpStartX = 20, shpStartY = 170, shpWidth = 160, shpHeight = 40;
+        int shpArcWidth = 7, shpArcHeight = 7;
+
+        graphics.setColor(Color.BLACK);
+        (g).setStroke(new BasicStroke(1));
+        graphics.drawRoundRect(shpStartX, shpStartY, shpWidth, shpHeight, shpArcWidth, shpArcHeight);
+    }
 }
+
