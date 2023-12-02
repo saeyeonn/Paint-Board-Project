@@ -51,8 +51,9 @@ public class ToolBarForm extends JToolBar {
         int colStartX = 20, colStartY = 44, colWidth = 120, colHeight = 118;
         int colArcWidth = 7, colArcHeight = 7;
 
+        Graphics2D g= (Graphics2D) graphics;
         graphics.setColor(Color.BLACK);
-        ((Graphics2D) graphics).setStroke(new BasicStroke(1));
+        (g).setStroke(new BasicStroke(1));
         graphics.drawRoundRect(colStartX, colStartY, colWidth, colHeight, colArcWidth, colArcHeight);
 
         // Set and Display Shape List External Box Line
@@ -60,7 +61,7 @@ public class ToolBarForm extends JToolBar {
         int shpArcWidth = 7, shpArcHeight = 7;
 
         graphics.setColor(Color.BLACK);
-        ((Graphics2D) graphics).setStroke(new BasicStroke(1));
+        (g).setStroke(new BasicStroke(1));
         graphics.drawRoundRect(shpStartX, shpStartY, shpWidth, shpHeight, shpArcWidth, shpArcHeight);
     }
 }
