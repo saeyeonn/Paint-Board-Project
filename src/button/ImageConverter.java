@@ -18,9 +18,6 @@ public class ImageConverter {
                 || buttonName.equals("dot") || buttonName.equals("dash") || buttonName.equals("solid")) {
             width = 70;
             height = 40;
-        } else if (buttonName.equals("lineType") || buttonName.equals("lineBold")) {
-            width = 190;
-            height = 45;
         }
 
         // generate scaled imageIcon

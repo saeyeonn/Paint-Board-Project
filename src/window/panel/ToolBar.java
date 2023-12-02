@@ -6,7 +6,7 @@ import window.box.BoldTypeBox;
 import window.box.LineTypeBox;
 import window.box.TextCheckBoxForm;
 import window.box.TextComboBoxForm;
-import window.label.LabelBoxForm;
+import window.label.TextLabel;
 import window.spinner.TextSpinnerForm;
 
 import javax.swing.*;
@@ -30,11 +30,11 @@ public class ToolBar {
                 toolbarPanel.add(Box.createVerticalStrut(1));
             } else if (button.getName().equals("21_lineEraser")) {
                 toolbarPanel.add(Box.createVerticalStrut(50));
-                toolbarPanel.add(LabelBoxForm.getLineTypeLabel());
+                toolbarPanel.add(TextLabel.getLineTypeLabel());
 
                 LineTypeBox lineType = LineTypeBox.create();
                 toolbarPanel.add(lineType.getBox());
-                toolbarPanel.add(LabelBoxForm.getLineBoldLabel());
+                toolbarPanel.add(TextLabel.getLineBoldLabel());
 
                 BoldTypeBox boldType = BoldTypeBox.create();
                 toolbarPanel.add(boldType.getBox());
