@@ -24,4 +24,5 @@ public class FrameForm extends JFrame {
     public static FrameForm getInstance(){
         return frameForm;
     }
+
 }

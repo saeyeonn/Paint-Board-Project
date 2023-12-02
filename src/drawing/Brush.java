@@ -1,4 +1,10 @@
 package drawing;
 
-public class Brush implements Draw{
+import javax.swing.*;
+import java.awt.*;
+
+public class Brush implements Draw {
+
+
 }
+
