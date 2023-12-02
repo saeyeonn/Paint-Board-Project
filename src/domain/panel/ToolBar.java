@@ -4,10 +4,11 @@ import domain.box.BoldTypeBox;
 import domain.box.LineTypeBox;
 import domain.box.TextBox;
 import domain.box.TextCheckBoxForm;
-import domain.button.ActionButtons;
 import domain.button.Button;
+import domain.button.Buttons;
 import domain.label.TextLabel;
 import domain.spinner.TextSpinnerForm;
+import repository.ButtonRepository;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,8 +23,9 @@ public class ToolBar {
         toolbarPanel.setBackground(new Color(222, 237, 239));
         toolbarPanel.setLayout(new FlowLayout());
 
-        ActionButtons buttonList = ActionButtons.create("src/resource/toolBar");
+        Buttons buttonList = Buttons.create("src/resource/toolBar");
         List<Button> buttons = buttonList.getButtons();
+        ButtonRepository.getInstance().addAll(buttons);
 
         for (Button button : buttons) {
             if (button.getName().equals("16_reset") || button.getName().equals("17_line")) {

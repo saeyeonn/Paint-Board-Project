@@ -1,16 +1,17 @@
 package domain.button;
 
-import domain.button.constants.ButtonType;
-import domain.button.constants.Color;
+import domain.button.constants.ButtonConstants;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class Button extends JButton {
-    private final ButtonType buttonType;
+    private final ButtonConstants buttonConstants;
 
-    public Button(String filepath, String buttonName) {
-        ButtonType variable = null;
+    public Button(
+            String filepath,
+            String buttonName
+    ) {
         setName(buttonName);
         setIcon(ImageConverter.getIconImage(filepath, buttonName));
         setBorderPainted(false);
@@ -18,14 +19,7 @@ public class Button extends JButton {
         setContentAreaFilled(false);
         setPreferredSize(new Dimension(35, 35));
 
-        if (Color.isColorType(buttonName)) {
-            variable = ButtonType.COLOR;
-            System.out.println(buttonName + " = 색깔");
-        } else {
-            variable = ButtonType.ACTION;
-            System.out.println(buttonName + " = 액션");
-        }
-
-        this.buttonType = variable;
+        System.out.println(buttonName + "은 " + ButtonConstants.getButtonType(buttonName).getButtonUtilityType() + "기능");
+        this.buttonConstants = ButtonConstants.getButtonType(buttonName);
     }
 }

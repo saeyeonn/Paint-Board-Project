@@ -8,10 +8,10 @@ import java.util.List;
 
 import static java.util.Objects.requireNonNull;
 
-public class ActionButtons {
+public class Buttons {
     private final List<Button> buttons;
 
-    private ActionButtons(String filepath) {
+    private Buttons(String filepath) {
         ArrayList<Button> buttonList = new ArrayList<>();
         File buttonFiles = new File(filepath);
 
@@ -29,8 +29,8 @@ public class ActionButtons {
         this.buttons = buttonList;
     }
 
-    public static ActionButtons create(String buttonPath) {
-        return new ActionButtons(buttonPath);
+    public static Buttons create(String buttonPath) {
+        return new Buttons(buttonPath);
     }
 
     public List<Button> getButtons() {

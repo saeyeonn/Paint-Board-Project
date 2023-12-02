@@ -1,7 +1,8 @@
 package domain.panel;
 
-import domain.button.ActionButtons;
 import domain.button.Button;
+import domain.button.Buttons;
+import repository.ButtonRepository;
 
 import javax.swing.*;
 import java.awt.*;
@@ -28,8 +29,9 @@ public class MiniBar {
         miniBarPanel.setLayout(new FlowLayout());
         miniBarPanel.setLocation(600, 50);
 
-        ActionButtons buttonList = ActionButtons.create(RESOURCE_PATH);
+        Buttons buttonList = Buttons.create(RESOURCE_PATH);
         List<Button> buttons = buttonList.getButtons();
+        ButtonRepository.getInstance().addAll(buttons);
         buttons.forEach(miniBarPanel::add);
     }
 
