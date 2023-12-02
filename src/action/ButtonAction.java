@@ -1,14 +1,15 @@
 package action;
 
+import drawing.Pen;
+import text.TextBox;
+
 import javax.swing.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import button.Button;
-import drawing.Draw;
-import drawing.Pen;
-
 public class ButtonAction implements ActionListener {
+
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton selectButton = (JButton) e.getSource();
@@ -17,10 +18,10 @@ public class ButtonAction implements ActionListener {
         if (Name.equals("25_pen")) {
             // Pen 버튼을 눌렀을 때 
             Pen pen= new Pen();
-//            pen.draw((Button) selectButton);
-        } else if (Name.equals("")) {
-            //쭉 밑으로 버튼마다의 기능 연결
-
+            //pen.draw((Button) selectButton);
+        } else if (Name.equals("28_textBox")) {
+            TextBox textBox = new TextBox();
+            textBox.setCreating();
         }
     }
 
