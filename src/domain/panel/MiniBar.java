@@ -1,7 +1,7 @@
-package window.panel;
+package domain.panel;
 
-import button.ActionButtons;
-import button.Button;
+import domain.button.ActionButtons;
+import domain.button.Button;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,6 +18,10 @@ public class MiniBar {
         this.miniBarPanel = miniBarPanel;
     }
 
+    public static MiniBar create() {
+        return new MiniBar();
+    }
+
     private void initPanelConstraints(JPanel miniBarPanel) {
         miniBarPanel.setBackground(new Color(222, 237, 239));
         miniBarPanel.setPreferredSize(new Dimension(200, 45));
@@ -27,10 +31,6 @@ public class MiniBar {
         ActionButtons buttonList = ActionButtons.create(RESOURCE_PATH);
         List<Button> buttons = buttonList.getButtons();
         buttons.forEach(miniBarPanel::add);
-    }
-
-    public static MiniBar create() {
-        return new MiniBar();
     }
 
     public JPanel getPanel() {

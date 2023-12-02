@@ -1,13 +1,13 @@
-package window.panel;
+package domain.panel;
 
-import button.ActionButtons;
-import button.Button;
-import window.box.BoldTypeBox;
-import window.box.LineTypeBox;
-import window.box.TextBox;
-import window.box.TextCheckBoxForm;
-import window.label.TextLabel;
-import window.spinner.TextSpinnerForm;
+import domain.box.BoldTypeBox;
+import domain.box.LineTypeBox;
+import domain.box.TextBox;
+import domain.box.TextCheckBoxForm;
+import domain.button.ActionButtons;
+import domain.button.Button;
+import domain.label.TextLabel;
+import domain.spinner.TextSpinnerForm;
 
 import javax.swing.*;
 import java.awt.*;

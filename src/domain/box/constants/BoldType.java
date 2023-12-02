@@ -1,4 +1,4 @@
-package window.box.constants;
+package domain.box.constants;
 
 public enum BoldType {
     SIZE_1("1pt"),
@@ -7,11 +7,11 @@ public enum BoldType {
     SIZE_9("9pt");
 
 
+    private final String name;
+
     BoldType(String name) {
         this.name = name;
     }
-
-    private final String name;
 
     public String getName() {
         return name;

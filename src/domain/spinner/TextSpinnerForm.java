@@ -1,4 +1,4 @@
-package window.spinner;
+package domain.spinner;
 
 import javax.swing.*;
 import java.awt.*;

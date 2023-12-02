@@ -1,7 +1,7 @@
-package window.box;
+package domain.box;
 
+import domain.box.constants.LineType;
 import util.ImageConverterBack;
-import window.box.constants.LineType;
 
 import javax.swing.*;
 import java.awt.*;

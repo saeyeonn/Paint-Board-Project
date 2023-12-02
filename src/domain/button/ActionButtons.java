@@ -1,4 +1,4 @@
-package button;
+package domain.button;
 
 import java.io.File;
 import java.util.ArrayList;

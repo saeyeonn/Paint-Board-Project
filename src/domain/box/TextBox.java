@@ -1,6 +1,6 @@
-package window.box;
+package domain.box;
 
-import window.box.constants.FontType;
+import domain.box.constants.FontType;
 
 import javax.swing.*;
 import java.awt.*;

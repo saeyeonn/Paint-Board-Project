@@ -1,7 +1,7 @@
-package window;
+package domain;
 
-import window.panel.Canvas;
-import window.panel.ToolBar;
+import domain.panel.Canvas;
+import domain.panel.ToolBar;
 
 import javax.swing.*;
 
@@ -37,6 +37,10 @@ public class Board {
         this.toolBar = toolBar;
     }
 
+    public static Board create() {
+        return new Board();
+    }
+
     private void initFrameConstraints(JFrame mainFrame) {
         mainFrame.setTitle(TITLE);
         mainFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -45,10 +49,6 @@ public class Board {
 
         ImageIcon imageIcon = new ImageIcon(SYSTEM_ICON);
         mainFrame.setIconImage(imageIcon.getImage());
-    }
-
-    public static Board create() {
-        return new Board();
     }
 
     public void show() {

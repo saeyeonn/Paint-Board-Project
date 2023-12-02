@@ -1,13 +1,15 @@
 package controller;
 
-import window.Board;
+import domain.Board;
 
 public class SystemController {
     private SystemController() {
     }
 
-    public static void start(){
+    public static void start() {
         Board board = Board.create();
         board.show();
+
+
     }
 }

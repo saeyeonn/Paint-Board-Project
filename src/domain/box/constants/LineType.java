@@ -1,11 +1,11 @@
-package window.box.constants;
+package domain.box.constants;
 
 public enum LineType {
     DOT("dot"),
     DASH("dash"),
     SOLID("solid");
 
-    private String name;
+    private final String name;
 
     LineType(String name) {
         this.name = name;

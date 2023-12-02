@@ -1,4 +1,4 @@
-package window.box.constants;
+package domain.box.constants;
 
 public enum FontType {
     ARIAL("Arial"),

@@ -1,4 +1,4 @@
-package button;
+package domain.button;
 
 import javax.swing.*;
 import java.awt.*;
