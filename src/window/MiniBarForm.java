@@ -1,11 +1,12 @@
 package window;
 
 import button.Button;
-import button.ButtonList;
+import button.ActionButtons;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MiniBarForm extends JPanel  {
     private static final MiniBarForm miniBarForm = new MiniBarForm();
@@ -13,12 +14,13 @@ public class MiniBarForm extends JPanel  {
     private MiniBarForm() { // set details of minibar
         setBackground(new Color(222, 237, 239));
         setPreferredSize(new Dimension(200, 45));
+        setLayout(new FlowLayout());
         setLocation(600,50);
 
-        ButtonList buttonList = ButtonList.create("src/resource/miniBar");
-        ArrayList<button.Button> buttonsList = buttonList.getButtons();
+        ActionButtons buttonList = ActionButtons.create("src/resource/miniBar");
+        List<Button> buttons = buttonList.getButtons();
 
-        for (Button button : buttonsList) {
+        for (Button button : buttons) {
             add(button);
         }
     }

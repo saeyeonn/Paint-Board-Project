@@ -1,8 +1,8 @@
-import window.WindowController;
+import window.FrameForm;
 
 public class PaintBoardApplication {
     public static void main(String[] args) {
-        WindowController.initialize();
+        FrameForm.create();
     }
 }
 

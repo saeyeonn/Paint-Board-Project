@@ -1,11 +1,11 @@
 package window;
 
+import button.ActionButtons;
 import button.Button;
-import button.ButtonList;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
+import java.util.List;
 
 public class ToolBarForm extends JToolBar {
 
@@ -16,11 +16,11 @@ public class ToolBarForm extends JToolBar {
         setLayout(new FlowLayout());
 
         // generate and get buttons of toolbar in once
-        ButtonList buttonList = ButtonList.create("src/resource/toolBar");
-        ArrayList<Button> buttonsList = buttonList.getButtons();
+        ActionButtons buttonList = ActionButtons.create("src/resource/toolBar");
+        List<Button> buttons = buttonList.getButtons();
 
         // display buttons in buttonList
-        for (Button button : buttonsList) {
+        for (Button button : buttons) {
             if (button.getName().equals("16_reset") || button.getName().equals("17_line")) {
                 add(Box.createVerticalStrut(1));
             } else if (button.getName().equals("21_lineEraser")) {
@@ -43,6 +43,8 @@ public class ToolBarForm extends JToolBar {
         add(Box.createHorizontalStrut(5));
         add(TextCheckBoxForm.getFontBoldBox());
         add(TextCheckBoxForm.getFontUnderLineBox());
+
+        setFloatable(false);
     }
 
     protected void paintComponent(Graphics graphics) {
@@ -51,7 +53,7 @@ public class ToolBarForm extends JToolBar {
         int colStartX = 20, colStartY = 44, colWidth = 120, colHeight = 118;
         int colArcWidth = 7, colArcHeight = 7;
 
-        Graphics2D g= (Graphics2D) graphics;
+        Graphics2D g = (Graphics2D) graphics;
         graphics.setColor(Color.BLACK);
         (g).setStroke(new BasicStroke(1));
         graphics.drawRoundRect(colStartX, colStartY, colWidth, colHeight, colArcWidth, colArcHeight);
