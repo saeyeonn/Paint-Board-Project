@@ -2,11 +2,8 @@ package window;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 public class LabelBoxForm extends JLabel {
-
-    // set resources
     public static final LabelBoxForm lineTypeLabel = new LabelBoxForm("Line Type", 60, 30);
     public static final LabelBoxForm lineBoldLabel = new LabelBoxForm("Line Bold",60, 30);
 
