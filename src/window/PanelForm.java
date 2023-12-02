@@ -2,6 +2,8 @@ package window;
 
 import javax.swing.*;
 
+import text.TextBox;
+
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -15,7 +17,8 @@ public class PanelForm extends JPanel{
         addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-
+                TextBox textBox = new TextBox(PanelForm.this);
+                textBox.click(e);
             }
 
             @Override
