@@ -2,7 +2,8 @@ package window.panel;
 
 import button.ActionButtons;
 import button.Button;
-import window.box.LineBoxForm;
+import window.box.BoldTypeBox;
+import window.box.LineTypeBox;
 import window.box.TextCheckBoxForm;
 import window.box.TextComboBoxForm;
 import window.label.LabelBoxForm;
@@ -28,12 +29,15 @@ public class ToolBar {
             if (button.getName().equals("16_reset") || button.getName().equals("17_line")) {
                 toolbarPanel.add(Box.createVerticalStrut(1));
             } else if (button.getName().equals("21_lineEraser")) {
-                // display line type, bold box
                 toolbarPanel.add(Box.createVerticalStrut(50));
                 toolbarPanel.add(LabelBoxForm.getLineTypeLabel());
-                toolbarPanel.add(LineBoxForm.getLineTypeBox());
+
+                LineTypeBox lineType = LineTypeBox.create();
+                toolbarPanel.add(lineType.getBox());
                 toolbarPanel.add(LabelBoxForm.getLineBoldLabel());
-                toolbarPanel.add(LineBoxForm.getBoldTypeBox());
+
+                BoldTypeBox boldType = BoldTypeBox.create();
+                toolbarPanel.add(boldType.getBox());
                 toolbarPanel.add(Box.createVerticalStrut(50));
             }
             toolbarPanel.add(button);
