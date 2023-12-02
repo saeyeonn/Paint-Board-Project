@@ -1,7 +1,7 @@
 package window;
 
-import window.panel.ToolBar;
 import window.panel.Canvas;
+import window.panel.ToolBar;
 
 import javax.swing.*;
 
@@ -32,8 +32,6 @@ public class Board {
         mainFrame.add(canvasPanel);
         mainFrame.add(toolBarPanel, WEST);
 
-        mainFrame.setVisible(true);
-
         this.frame = mainFrame;
         this.canvasPanel = canvas;
         this.toolBar = toolBar;
@@ -51,5 +49,9 @@ public class Board {
 
     public static Board create() {
         return new Board();
+    }
+
+    public void show() {
+        frame.setVisible(true);
     }
 }

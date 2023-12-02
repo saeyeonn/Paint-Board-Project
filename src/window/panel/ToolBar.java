@@ -2,7 +2,11 @@ package window.panel;
 
 import button.ActionButtons;
 import button.Button;
-import window.*;
+import window.box.LineBoxForm;
+import window.box.TextCheckBoxForm;
+import window.box.TextComboBoxForm;
+import window.label.LabelBoxForm;
+import window.spinner.TextSpinnerForm;
 
 import javax.swing.*;
 import java.awt.*;
@@ -32,7 +36,6 @@ public class ToolBar {
                 toolbarPanel.add(LineBoxForm.getBoldTypeBox());
                 toolbarPanel.add(Box.createVerticalStrut(50));
             }
-
             toolbarPanel.add(button);
         }
 

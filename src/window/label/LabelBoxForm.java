@@ -1,4 +1,4 @@
-package window;
+package window.label;
 
 import javax.swing.*;
 import java.awt.*;

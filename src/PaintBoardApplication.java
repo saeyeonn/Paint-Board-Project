@@ -1,8 +1,8 @@
-import window.Board;
+import controller.SystemController;
 
 public class PaintBoardApplication {
     public static void main(String[] args) {
-        Board.create();
+        SystemController.start();
     }
 }
 

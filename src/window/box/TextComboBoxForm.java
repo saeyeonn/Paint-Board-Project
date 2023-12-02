@@ -1,4 +1,4 @@
-package window;
+package window.box;
 
 import javax.swing.*;
 import java.awt.*;

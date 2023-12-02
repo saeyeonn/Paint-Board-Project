@@ -1,4 +1,4 @@
-package window;
+package window.box;
 
 import button.ImageConverter;
 import javax.swing.*;
