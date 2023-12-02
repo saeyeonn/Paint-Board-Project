@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import button.Button;
 import drawing.Draw;
 import drawing.Pen;
+import window.PanelForm;
 
 public class ButtonAction implements ActionListener {
     @Override
@@ -16,6 +17,7 @@ public class ButtonAction implements ActionListener {
         String Name=selectButton.getName();
         if (Name.equals("25_pen")) {
             // Pen 버튼을 눌렀을 때 
+            System.out.println("Pen!!");
             Pen pen= new Pen();
 //            pen.draw((Button) selectButton);
         } else if (Name.equals("")) {
