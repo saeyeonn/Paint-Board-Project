@@ -14,6 +14,7 @@ public class TextBoxInfo {
     }
 
     public JTextField getTextBox() {
+
         return textBox;
     }
 

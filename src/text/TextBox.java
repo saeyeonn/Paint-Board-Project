@@ -13,7 +13,7 @@ public class TextBox {
     private static JPanel panel;
     private List<TextBoxInfo> textBoxList = new ArrayList<>();
     
-    public TextBox() {
+    private TextBox() {
 
     }
 
