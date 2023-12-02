@@ -25,4 +25,11 @@ public class ButtonRepository {
     public void printAllButtons() {
         buttons.forEach(button -> System.out.println(button.getName() + "이 ButtonRepository에 들어있어요."));
     }
+
+    public Button findByName(String name) {
+        return buttons.stream()
+                .filter(button -> button.getName().equals(name))
+                .findFirst()
+                .get();
+    }
 }

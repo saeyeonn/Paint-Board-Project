@@ -6,7 +6,7 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 
 public class LineEraser implements Erase, MouseListener {
-    private BufferedImage bufferedImage;
+    private final BufferedImage bufferedImage;
 
     // LineEraser 생성자
     public LineEraser(BufferedImage image) {
@@ -30,12 +30,15 @@ public class LineEraser implements Erase, MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        Graphics2D g = bufferedImage.createGraphics();
+        System.out.println("찍힘");
         int x = e.getX();
         int y = e.getY();
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
+        System.out.println("눌림");
         int x = e.getX();
         int y = e.getY();
 
