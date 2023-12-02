@@ -11,7 +11,6 @@ public class TextSpinnerForm extends JSpinner{
 
     TextSpinnerForm(SpinnerNumberModel spinnerNumberModel, int width, int height) { //set details
         setPreferredSize(new Dimension(width, height));
-        addChangeListener(new ChangeDetector());
       }
 
     public static TextSpinnerForm getFontSizeSpinner() {

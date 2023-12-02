@@ -10,6 +10,7 @@ import java.util.List;
 
 public class MiniBarForm extends JPanel  {
     private static final MiniBarForm miniBarForm = new MiniBarForm();
+    private static final String RESOURCE_PATH = "src/resource/miniBar";
 
     private MiniBarForm() { // set details of minibar
         setBackground(new Color(222, 237, 239));
@@ -17,7 +18,7 @@ public class MiniBarForm extends JPanel  {
         setLayout(new FlowLayout());
         setLocation(600,50);
 
-        ActionButtons buttonList = ActionButtons.create("src/resource/miniBar");
+        ActionButtons buttonList = ActionButtons.create(RESOURCE_PATH);
         List<Button> buttons = buttonList.getButtons();
 
         for (Button button : buttons) {
