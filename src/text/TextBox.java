@@ -53,8 +53,9 @@ public class TextBox {
         isTextBoxCreating = true;
         System.out.println("눌림!");
     }
+    
 
-    // TB 위치 배치
+    // TB 위치 올바르게 배치
     public void arrangeTextBoxes() {
         for (TextBoxInfo textBoxInfo : textBoxList) {
             JTextField textBox = textBoxInfo.getTextBox();
@@ -63,6 +64,10 @@ public class TextBox {
             textBox.setBounds(x, y, 100, 30);
         }
         panel.repaint();
+
+        if (textBoxList.size() > 0) {
+            panel.setLayout(null);
+        }
     }
 
     // TB 생성
@@ -78,6 +83,7 @@ public class TextBox {
         y = Math.min(Math.max(y, 0), maxY);
     
         textField.setBounds(x, y, 100, 30); // TB 위치 및 크기 설정
+        textField.requestFocusInWindow(); // 포커스 설정 추가
         return textField;
     }
 
