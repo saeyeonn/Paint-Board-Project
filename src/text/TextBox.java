@@ -11,14 +11,21 @@ import java.util.Map;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
+import window.TextComboBoxForm;
+import window.TextSpinnerForm;
+
 public class TextBox {
     private static JPanel panel;
     private static List<JTextField> textBoxList = new ArrayList<>();
     private static Map<JTextField, TextBoxInfo> infoMap = TextMaps.infoMap;
-    // private static List<TextBoxInfo> textBoxList = new ArrayList<>();
     private static Map<JTextField, States> statesMap = TextMaps.statesMap;
-    // private static List<States> textStatesList = new ArrayList<>();
-    
+
+    private static JTextField selectedTextBox = null; // 현재 선택된 TextBox 저장
+    private static boolean isTextBoxCreating = false; // 새로운 TB를 생성 중인지 여부를 나타내는 변수
+    private static final int BORDER_SIZE = 3; // 선택된 TB의 테두리 크기
+    private static final Border defaultBorder = UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border");
+        // TB의 기본 테두리 스타일 (선택 해제할 때 기존 테두리 원상 복귀하기 위해 사용)
+
     public TextBox(JPanel panel) {
         TextBox.panel = panel;
     }
@@ -26,13 +33,11 @@ public class TextBox {
     public TextBox() {
     }
 
-    private static JTextField selectedTextBox = null; // 현재 선택된 TextBox 저장
-    private static boolean isTextBoxCreating = false; // 새로운 TB를 생성 중인지 여부를 나타내는 변수
-    private static int width;
-    private static int height;
-    private static final int BORDER_SIZE = 5; // 선택된 TB의 테두리 크기
-    private static final Border defaultBorder = UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border");
-        // TB의 기본 테두리 스타일 (선택 해제할 때 기존 테두리 원상 복귀하기 위해 사용)
+    // 텍스트 버튼 누르면 TB 생성 가능 상태가 됨
+    public void setCreating() {
+        isTextBoxCreating = true;
+        System.out.println("눌림!");
+    }
 
     public void click(MouseEvent e){
         // TB 생성 가능 상태 일 때 (버튼을 눌렀을 때) TB 생성
@@ -50,6 +55,7 @@ public class TextBox {
             
             panel.repaint(); // 컴포넌트 추가했으므로 새로운 상태로 화면 갱신
             pickCurrent(newTextBox); // 생성된 것을 우선 선택
+
             isTextBoxCreating = false; // 생성 종료
             panel.requestFocusInWindow(); // 텍스트 박스가 생성되자마자 패널에 포커스를 이동
 
@@ -58,16 +64,16 @@ public class TextBox {
             if (selectedTextBox != null) { // 선택 된 박스가 있다면
                 setUnselectedStyle(selectedTextBox); // 선택 된 박스의 테두리를 원상 복귀
                 selectedTextBox = null; // 선택 해제
+                
+                FontType.textCilcked(null); // 연결 해제
+                TextSize.textCilcked(null); 
+                BoldUnderline.detach();
+                
+                TextSpinnerForm.getFontSizeSpinner().setValue(12);
+                TextComboBoxForm.getFontComboBox().setSelectedIndex(0);            
             }
         }
     }
-
-    // 텍스트 버튼 누르면 TB 생성 가능 상태가 됨
-    public void setCreating() {
-        isTextBoxCreating = true;
-        System.out.println("눌림!");
-    }
-    
 
     // TB 위치 올바르게 배치
     public void arrangeTextBoxes() {
@@ -78,6 +84,7 @@ public class TextBox {
             int w = textBoxInfo.getW();
             int h = textBoxInfo.getH();
             textBox.setBounds(x, y, w, h);
+            TextSize.updateTextFieldSize(textBox);
             //textBox.setBounds(x, y, 100, 30);
         }
 
@@ -103,13 +110,7 @@ public class TextBox {
         x = Math.min(Math.max(x, 0), maxX);
         y = Math.min(Math.max(y, 0), maxY);
 
-        FontMetrics metrics = textField.getFontMetrics(textField.getFont()); // 특정 글꼴에 대한 측정치 제공
-        width = metrics.stringWidth(textField.getText()) + 15;
-        System.out.println("넓이"+width);
-        height = metrics.getHeight() + 15;
-        System.out.println("높이"+height);
-        
-        infoMap.put(textField, new TextBoxInfo(width, height));
+        infoMap.put(textField, new TextBoxInfo());
         statesMap.put(textField, new States());
         
         textField.setBounds(x, y, 0, 0); // TB 위치 및 크기 설정
@@ -132,6 +133,7 @@ public class TextBox {
     private static void pickCurrent(JTextField textField) {
         if (selectedTextBox != null) { // 선택 된 TB가 있다면 
             setUnselectedStyle(selectedTextBox); // 기존에 선택 되었던 박스의 테두리를 원상 복귀
+            TextSize.updateTextFieldSize(selectedTextBox);
         }
         selectedTextBox = textField; // 현재 클릭된 박스를 선택 대상으로 설정
         setSelectedStyle(selectedTextBox); // 현재 클릭된 박스의 테두리 강조

@@ -3,15 +3,17 @@ package window;
 import eraser.EraserController;
 import eraser.PixelEraser;
 import text.TextBox;
+import zoom.Zoom;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
 
 public class PanelForm extends JPanel{
     private TextBox textBox;
-    private PixelEraser pixelEraser;
 
     public PanelForm() {
         add(MiniBarForm.getInstance(), BorderLayout.NORTH); // add minibar
@@ -19,9 +21,6 @@ public class PanelForm extends JPanel{
         setLayout(new FlowLayout());
 
 
-
-        textBox = new TextBox(PanelForm.this);
-        pixelEraser = new PixelEraser(PanelForm.this);
 
         addMouseListener(new MouseListener() {
             @Override
@@ -57,5 +56,23 @@ public class PanelForm extends JPanel{
 
             }
         });
+
+        // 마우스 휠 리스너 추가
+        addMouseWheelListener(new MouseWheelListener() {
+            @Override
+            public void mouseWheelMoved(MouseWheelEvent e) {
+                // 마우스 휠 움직임에 따라 zoom 처리
+                int notches = e.getWheelRotation();
+                if (notches < 0) {
+                    // 마우스 휠을 위로 돌리면 줌 인
+                    zoom.zoomIn();
+                } else {
+                    // 마우스 휠을 아래로 돌리면 줌 아웃
+                    zoom.zoomOut();
+                }
+                repaint();
+            }
+        });
+
     }
 }
