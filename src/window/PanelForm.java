@@ -1,10 +1,11 @@
 package window;
 
-import javax.swing.*;
-
+import eraser.EraserController;
+import eraser.PixelEraser;
 import text.TextBox;
 import zoom.Zoom;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -13,16 +14,13 @@ import java.awt.event.MouseWheelListener;
 
 public class PanelForm extends JPanel{
     private TextBox textBox;
-    private Zoom zoom;
 
     public PanelForm() {
         add(MiniBarForm.getInstance(), BorderLayout.NORTH); // add minibar
-        setBackground(Color.WHITE);
+        setBackground(Color.white);
         setLayout(new FlowLayout());
 
-        textBox = new TextBox(this);
-        zoom = new Zoom();
-    
+
 
         addMouseListener(new MouseListener() {
             @Override
@@ -33,11 +31,18 @@ public class PanelForm extends JPanel{
 
             @Override
             public void mousePressed(MouseEvent e) {
-
+                if (pixelEraser != null&& EraserController.act) {
+                    pixelEraser.setEraserActivated(true);
+                    System.out.println(EraserController.act);
+                } else {
+                        pixelEraser.setEraserdeactivated();
+                }
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
+
+
 
             }
 

@@ -1,4 +1,6 @@
 package shape;
 
-public class Line implements Shaping {
+public class Line  implements Shaping {
+
+
 }
