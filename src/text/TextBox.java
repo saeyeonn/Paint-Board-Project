@@ -18,14 +18,10 @@ public class TextBox {
     private static JPanel panel;
     private static List<JTextField> textBoxList = new ArrayList<>();
     private static Map<JTextField, TextBoxInfo> infoMap = TextMaps.infoMap;
+    // private static List<TextBoxInfo> textBoxList = new ArrayList<>();
     private static Map<JTextField, States> statesMap = TextMaps.statesMap;
-
-    private static JTextField selectedTextBox = null; // 현재 선택된 TextBox 저장
-    private static boolean isTextBoxCreating = false; // 새로운 TB를 생성 중인지 여부를 나타내는 변수
-    private static final int BORDER_SIZE = 3; // 선택된 TB의 테두리 크기
-    private static final Border defaultBorder = UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border");
-        // TB의 기본 테두리 스타일 (선택 해제할 때 기존 테두리 원상 복귀하기 위해 사용)
-
+    // private static List<States> textStatesList = new ArrayList<>();
+    
     public TextBox(JPanel panel) {
         TextBox.panel = panel;
     }
@@ -33,21 +29,11 @@ public class TextBox {
     public TextBox() {
     }
 
-<<<<<<< HEAD
     private static JTextField selectedTextBox = null; // 현재 선택된 TextBox 저장
     private static boolean isTextBoxCreating = false; // 새로운 TB를 생성 중인지 여부를 나타내는 변수
     private static final int BORDER_SIZE = 3; // 선택된 TB의 테두리 크기
     private static final Border defaultBorder = UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border");
         // TB의 기본 테두리 스타일 (선택 해제할 때 기존 테두리 원상 복귀하기 위해 사용)
-=======
-
-    // 텍스트 버튼 누르면 TB 생성 가능 상태가 됨
-    public void setCreating() {
-        isTextBoxCreating = true;
-        System.out.println("눌림!");
-    }
-    
->>>>>>> f296c38bcfa7cf2efa6c7aad48e55e400f0fbc35
 
     public void click(MouseEvent e){
         // TB 생성 가능 상태 일 때 (버튼을 눌렀을 때) TB 생성
@@ -84,6 +70,13 @@ public class TextBox {
             }
         }
     }
+
+    // 텍스트 버튼 누르면 TB 생성 가능 상태가 됨
+    public void setCreating() {
+        isTextBoxCreating = true;
+        System.out.println("눌림!");
+    }
+    
 
     // TB 위치 올바르게 배치
     public void arrangeTextBoxes() {
