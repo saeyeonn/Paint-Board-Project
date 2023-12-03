@@ -26,7 +26,10 @@ public class PanelForm extends JPanel{
         addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+
+
                 textBox.click(e);
+                System.out.println("생존");
                 textBox.arrangeTextBoxes(); // 위치 설정 추가
             }
 
@@ -35,9 +38,8 @@ public class PanelForm extends JPanel{
                 if (pixelEraser != null&& EraserController.act) {
                     pixelEraser.setEraserActivated(true);
                     System.out.println(EraserController.act);
-                } else {
-                        pixelEraser.setEraserdeactivated();
                 }
+
             }
 
             @Override

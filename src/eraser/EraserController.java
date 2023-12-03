@@ -34,7 +34,6 @@ public class EraserController{
         act=true;
         }
     public void deactivatePixelEraser() {
-        pixelEraser.setEraserActivated(false);
         act=false;
 
 

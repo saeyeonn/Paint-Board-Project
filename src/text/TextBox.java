@@ -1,13 +1,13 @@
 package text;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
 
 public class TextBox {
     private static JPanel panel;
