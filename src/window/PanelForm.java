@@ -28,18 +28,6 @@ public class PanelForm extends JPanel{
             i++;
             System.out.println(i+"개");
             shape.draw(g2d);
-//            if (shape instanceof Triangle){
-//                Triangle t= new Triangle();
-//                t.draw(g2d);
-//            }else if (shape instanceof Rectangle){
-//                Rectangle r= new Rectangle();
-//                r.draw(g2d);
-//            }else if (shape instanceof Circle){
-//                Circle c = new Circle();
-//                c.draw(g2d);
-//            } else {
-//                //line draw
-//            }
         }
     }
 

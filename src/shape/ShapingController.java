@@ -21,20 +21,20 @@ public class ShapingController {
     //---------------버튼 클릭시 초기 도형 생성-----------------
     public void iniRect(){
         Rectangle rectangle= new Rectangle(0, 0, 60, 60);
-        currentShape=rectangle;
+        shapes.add(rectangle);
         System.out.println("만들어짐"+currentShape);
         System.out.println("사각형");
     }
 
     public void iniTri(){
         Triangle triangle = new Triangle(0, 0, 40, 80, -40, 80);
-        currentShape=triangle;
+        shapes.add(triangle);
         System.out.println("만들어짐"+currentShape);
         System.out.println("삼각형");
     }
     public void iniCir(){
         Circle circle = new Circle(0, 0, 50);
-        currentShape= circle;
+        shapes.add(circle);
         System.out.println("만들어짐"+currentShape);
         System.out.println("동그라미");
     }
@@ -93,7 +93,8 @@ public class ShapingController {
         // 마우스 드래그 동안 현재 도형의 위치를 업데이트
         if (currentShape != null) {
             currentShape.move(e.getX(), e.getY());
-            panel.repaint(); // 화면을 다시 그리도록 요청/
+            SwingUtilities.invokeLater(() -> panel.repaint());
+            // panel.repaint(); // 화면을 다시 그리도록 요청/
         }System.out.println("움직임");
     }
     public void release(){//mouseReleased
