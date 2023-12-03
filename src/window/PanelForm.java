@@ -1,5 +1,6 @@
 package window;
 
+import eraser.EraserController;
 import eraser.PixelEraser;
 import text.TextBox;
 
@@ -31,14 +32,18 @@ public class PanelForm extends JPanel{
 
             @Override
             public void mousePressed(MouseEvent e) {
-                if (pixelEraser != null) {
+                if (pixelEraser != null&& EraserController.act) {
                     pixelEraser.setEraserActivated(true);
-
-            }
+                    System.out.println(EraserController.act);
+                } else {
+                        pixelEraser.setEraserdeactivated();
+                }
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
+
+
 
             }
 
