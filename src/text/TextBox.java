@@ -6,18 +6,13 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
 public class TextBox {
     private static JPanel panel;
-    private static List<JTextField> textBoxList = new ArrayList<>();
-    private static Map<JTextField, TextBoxInfo> infoMap = TextMaps.infoMap;
-    // private static List<TextBoxInfo> textBoxList = new ArrayList<>();
-    private static Map<JTextField, States> statesMap = TextMaps.statesMap;
-    // private static List<States> textStatesList = new ArrayList<>();
+    private List<TextBoxInfo> textBoxList = new ArrayList<>();
+    private static List<TextStates> textStatesList = new ArrayList<>();
     
     public TextBox(JPanel panel) {
         TextBox.panel = panel;
@@ -38,20 +33,20 @@ public class TextBox {
         // TB 생성 가능 상태 일 때 (버튼을 눌렀을 때) TB 생성
         if (isTextBoxCreating) { 
             JTextField newTextBox = createTextBox(e.getX(), e.getY(), "New Text Box");
-            textBoxList.add(newTextBox);
             addTextBoxListener(newTextBox); // 마우스 클릭 이벤트 리스너 등록
             panel.add(newTextBox); // 패널에 TB 추가
             
+            BoldUnderline.textCilcked(newTextBox); // 체크 박스 상태칸  만들기
             FontType.textCilcked(newTextBox); // 폰트 타입 상태칸 만들기
             TextSize.textCilcked(newTextBox); // 텍스트 사이즈 상태칸 만들기
-            BoldUnderline.textCilcked(newTextBox); // 체크 박스 상태칸 만들기
-
-            infoMap.get(newTextBox).xAndy(e.getX(), e.getY());
             
             panel.repaint(); // 컴포넌트 추가했으므로 새로운 상태로 화면 갱신
             pickCurrent(newTextBox); // 생성된 것을 우선 선택
             isTextBoxCreating = false; // 생성 종료
             panel.requestFocusInWindow(); // 텍스트 박스가 생성되자마자 패널에 포커스를 이동
+
+            textBoxList.add(new TextBoxInfo(newTextBox, e.getX(), e.getY()));
+            textStatesList.add(new TextStates());
 
         // TB 생성 가능 상태가 아닐 때 빈 공간 선택시, 모든 TB 선택 해제
         } else {
@@ -71,14 +66,14 @@ public class TextBox {
 
     // TB 위치 올바르게 배치
     public void arrangeTextBoxes() {
-        for (JTextField textBox : textBoxList) {
-            TextBoxInfo textBoxInfo = infoMap.get(textBox);
+        for (TextBoxInfo textBoxInfo : textBoxList) {
+            JTextField textBox = TextBoxInfo.getTextBox();
             int x = textBoxInfo.getX();
             int y = textBoxInfo.getY();
-            int w = textBoxInfo.getW();
-            int h = textBoxInfo.getH();
-            textBox.setBounds(x, y, w, h);
-            //textBox.setBounds(x, y, 100, 30);
+            // int w = textBoxInfo.getW();
+            // int h = textBoxInfo.getH();
+            // textBox.setBounds(x, y, w, h);
+            textBox.setBounds(x, y, 100, 30);
         }
 
         panel.repaint();
@@ -104,17 +99,13 @@ public class TextBox {
         y = Math.min(Math.max(y, 0), maxY);
 
         FontMetrics metrics = textField.getFontMetrics(textField.getFont()); // 특정 글꼴에 대한 측정치 제공
-        width = metrics.stringWidth(textField.getText()) + 15;
+        width = metrics.stringWidth(textField.getText()) + 10;
         System.out.println("넓이"+width);
-        height = metrics.getHeight() + 15;
+        height = metrics.getHeight() + 10;
         System.out.println("높이"+height);
         
-        infoMap.put(textField, new TextBoxInfo(width, height));
-        statesMap.put(textField, new States());
-        
-        textField.setBounds(x, y, 0, 0); // TB 위치 및 크기 설정
+        textField.setBounds(x, y, width, height); // TB 위치 및 크기 설정
         textField.requestFocusInWindow(); // 포커스 설정 추가
-
         return textField;
     }
 
@@ -135,9 +126,9 @@ public class TextBox {
         }
         selectedTextBox = textField; // 현재 클릭된 박스를 선택 대상으로 설정
         setSelectedStyle(selectedTextBox); // 현재 클릭된 박스의 테두리 강조
-        FontType.textCilcked(selectedTextBox);
-        TextSize.textCilcked(selectedTextBox);
         BoldUnderline.textCilcked(selectedTextBox);
+        FontType.textCilcked(selectedTextBox);
+        // TextSize.textCilcked(selectedTextBox);
     }
 
     // 테두리 강조
@@ -148,9 +139,6 @@ public class TextBox {
     // 테두리 원상 복귀
     private static void setUnselectedStyle(JTextField textField) {
         textField.setBorder(defaultBorder); // Restore the default border to indicate deselection
-        FontType.textCilcked(null);
-        TextSize.textCilcked(null);
-        BoldUnderline.textCilcked(null);
     } 
 
     // 은아 -> develop
