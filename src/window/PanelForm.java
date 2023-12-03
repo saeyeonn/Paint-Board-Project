@@ -1,19 +1,43 @@
 package window;
 
-import eraser.EraserController;
-import eraser.PixelEraser;
+
 import text.TextBox;
 import zoom.Zoom;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseWheelEvent;
-import java.awt.event.MouseWheelListener;
+
 
 public class PanelForm extends JPanel{
     private TextBox textBox;
+    private ShapingController shapingController;
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);//패널 초기화=다 지움
+        Graphics2D g2d = (Graphics2D) g;
+
+        List<Shape> note=shapingController.sibal();
+        int i=0;
+        for (Shape shape : note){
+            i++;
+            System.out.println(i+"개");
+            shape.draw(g2d);
+//            if (shape instanceof Triangle){
+//                Triangle t= new Triangle();
+//                t.draw(g2d);
+//            }else if (shape instanceof Rectangle){
+//                Rectangle r= new Rectangle();
+//                r.draw(g2d);
+//            }else if (shape instanceof Circle){
+//                Circle c = new Circle();
+//                c.draw(g2d);
+//            } else {
+//                //line draw
+//            }
+        }
+    }
 
     public PanelForm() {
         add(MiniBarForm.getInstance(), BorderLayout.NORTH); // add minibar
@@ -22,7 +46,6 @@ public class PanelForm extends JPanel{
 
 
 
-        addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 textBox.click(e);
@@ -31,30 +54,16 @@ public class PanelForm extends JPanel{
 
             @Override
             public void mousePressed(MouseEvent e) {
-                if (pixelEraser != null&& EraserController.act) {
-                    pixelEraser.setEraserActivated(true);
-                    System.out.println(EraserController.act);
-                } else {
-                        pixelEraser.setEraserdeactivated();
-                }
-            }
 
+            }
+            @Override
+
+            }
             @Override
             public void mouseReleased(MouseEvent e) {
-
-
-
+                shapingController.release();
             }
 
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
         });
 
         // 마우스 휠 리스너 추가
@@ -75,4 +84,9 @@ public class PanelForm extends JPanel{
         });
 
     }
+
+    public synchronized void addMouseMotionListener(MouseMotionListener l) {
+
+    }
+
 }

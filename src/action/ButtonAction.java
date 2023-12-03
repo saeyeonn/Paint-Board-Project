@@ -1,6 +1,9 @@
 package action;
 
 import drawing.Pen;
+import shape.Circle;
+import shape.ShapingController;
+import shape.Triangle;
 import text.TextBox;
 import zoom.Zoom;
 
@@ -8,6 +11,11 @@ import javax.swing.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import button.Button;
+import drawing.Draw;
+import drawing.Pen;
+import window.PanelForm;
 
 public class ButtonAction implements ActionListener {
 
@@ -17,8 +25,9 @@ public class ButtonAction implements ActionListener {
         Zoom zoom = new Zoom();
 
         String Name=selectButton.getName();
+
         if (Name.equals("25_pen")) {
-            // Pen 버튼을 눌렀을 때 
+            // Pen 버튼을 눌렀을 때
             Pen pen= new Pen();
             //pen.draw((Button) selectButton);
         } else if (Name.equals("28_textBox")) {
@@ -32,14 +41,10 @@ public class ButtonAction implements ActionListener {
             System.out.println("언두");
 
         } else if (Name.equals("zoomIn")) {
-            // System.out.println("줌인");
-            // // zoom.zoomInBut();
 
-        } else if (Name.equals("zoomOut")) {
-            // System.out.println("줌아웃");
-            // // zoom.zoomOutBut();
         }
 
 
     }
+
 }

@@ -15,7 +15,7 @@ public class FrameForm extends JFrame {
         ImageIcon imageIcon = new ImageIcon("src/resource/paintBoard.png");
         setIconImage(imageIcon.getImage());
         add(new PanelForm()); // display panel (white)
-        add(new ToolBarForm(), BorderLayout.WEST); // display left toolbar
+        add(new ToolbarProtectionPanel(), BorderLayout.WEST); // display left toolbar
 
         setVisible(true);
     }

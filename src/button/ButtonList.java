@@ -35,9 +35,9 @@ public class ButtonList {
                 }
             }
         }
-        for (Button button : buttonList) {
-            System.out.println("Button Name: " + button.getName()); //버튼 이름 확인하려고 임가영이 만듦
-        }
+//        for (Button button : buttonList) {
+//            System.out.println("Button Name: " + button.getName()); //버튼 이름 확인하려고 임가영이 만듦
+//        }
         this.buttons = buttonList;
     }
 
