@@ -15,8 +15,7 @@ public class LineEraser implements Erase, MouseListener {
 
 
     @Override
-    public void erasePixel(int x, int y) {
-        //아무것도 안하는 코드
+    public void erasePixel(int x, int y) {//아무것도 안하는 코드
     }
 
     @Override
@@ -41,27 +40,19 @@ public class LineEraser implements Erase, MouseListener {
         System.out.println("눌림");
         int x = e.getX();
         int y = e.getY();
-
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
         int x = e.getX();
         int y = e.getY();
-
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        int x = e.getX();
-        int y = e.getY();
-
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        int x = e.getX();
-        int y = e.getY();
-
     }
 }

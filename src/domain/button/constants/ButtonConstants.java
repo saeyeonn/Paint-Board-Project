@@ -9,7 +9,7 @@ public enum ButtonConstants {
     UNDO("undo", ACTION, null),
     ZOOM_IN("zoomIn", ACTION, null),
     ZOOM_OUT("zoomOut", ACTION, null),
-    SAVE("01_save", ACTION, null),
+    SAVE("01_saving", ACTION, null),
     OPEN("02_imageLoading", ACTION, null),
     GROUP("03_group", SELECTION, null),
     UNGROUP("04_ungroup", SELECTION, null),

@@ -1,6 +1,7 @@
 package domain.button;
 
 import action.ButtonAction;
+import action.ButtonFocus;
 import domain.button.constants.ButtonConstants;
 import domain.panel.Canvas;
 import event.ClickListener;
@@ -34,6 +35,7 @@ public class Button extends JButton {
 
     private void addListener(Canvas canvas) {
         addActionListener(new ButtonAction(canvas));
+        ButtonFocus buttonFocus = new ButtonFocus(canvas);
         addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {
