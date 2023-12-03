@@ -27,7 +27,7 @@ public class Board {
         ToolBar toolBar = ToolBar.create();
 
         JPanel canvasPanel = canvas.getPanel();
-        JPanel toolBarPanel = toolBar.getPanel();
+        ToolBar toolBarPanel = toolBar.getPanel();
 
         mainFrame.add(canvasPanel);
         mainFrame.add(toolBarPanel, WEST);

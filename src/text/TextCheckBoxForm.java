@@ -1,7 +1,6 @@
-package window;
+package text;
 
 import javax.swing.*;
-import text.BoldUnderline;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

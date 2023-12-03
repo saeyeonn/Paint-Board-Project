@@ -1,24 +1,25 @@
 package domain.panel;
 
+import action.PanelMouseListener;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class Canvas {
-    private final JPanel canvasPanel;
+public class Canvas extends JPanel{
     private final JPanel miniBarPanel;
 
     private Canvas() {
-        JPanel canvasPanel = new JPanel();
 
         MiniBar miniBar = MiniBar.create();
         JPanel miniBarPanel = miniBar.getPanel();
 
-        canvasPanel.add(miniBarPanel, BorderLayout.NORTH);
-        canvasPanel.setBackground(Color.WHITE);
-        canvasPanel.setLayout(new FlowLayout());
+        add(miniBarPanel, BorderLayout.NORTH);
+        setBackground(Color.WHITE);
+        setLayout(new FlowLayout());
 
-        this.canvasPanel = canvasPanel;
         this.miniBarPanel = miniBarPanel;
+
+        PanelMouseListener panelMouseListener = new PanelMouseListener(this);
     }
 
     public static Canvas create() {
@@ -26,6 +27,6 @@ public class Canvas {
     }
 
     public JPanel getPanel() {
-        return canvasPanel;
+        return this;
     }
 }

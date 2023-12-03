@@ -9,7 +9,5 @@ public class SystemController {
     public static void start() {
         Board board = Board.create();
         board.show();
-
-
     }
 }
