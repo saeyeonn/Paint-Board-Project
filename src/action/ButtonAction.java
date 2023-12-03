@@ -3,7 +3,6 @@ package action;
 import drawing.Pen;
 import text.TextBox;
 
-import javax.print.attribute.standard.MediaSize.NA;
 import javax.swing.*;
 
 import java.awt.event.ActionEvent;

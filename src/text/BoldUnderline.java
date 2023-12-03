@@ -10,7 +10,7 @@ import window.TextCheckBoxForm;
 
 public class BoldUnderline {
     private static JTextField selectedTextField = null; // 현재 선택된 TB 저장
-    private static Map<JTextField, CheckBoxStates> checkBoxStatesMap = new HashMap<>(); // 각 TB의 체크 표시 설정 저장
+    private static Map<JTextField, TextStates> checkBoxStatesMap = new HashMap<>(); // 각 TB의 체크 표시 설정 저장
 
     private static TextCheckBoxForm boldBox;
     private static TextCheckBoxForm underlineBox;
@@ -37,7 +37,7 @@ public class BoldUnderline {
 
         // 각 TB에 대한 체크 박스 설정 객체를 생성하여 맵에 추가
         if (!checkBoxStatesMap.containsKey(textField)) {
-            checkBoxStatesMap.put(textField, new CheckBoxStates());
+            checkBoxStatesMap.put(textField, new TextStates());
         }
     }
 
@@ -45,23 +45,26 @@ public class BoldUnderline {
     private static void applySelectedAttributes() {
         // 선택된 TB가 있는 경우에만 작업 실행
         if (selectedTextField != null) {
-            CheckBoxStates checkBoxStates = checkBoxStatesMap.get(selectedTextField);
-
+            TextStates checkBoxStates = checkBoxStatesMap.get(selectedTextField);
+    
             if (checkBoxStates != null) { // null 체크 추가
                 Font font = selectedTextField.getFont();
                 int style = Font.PLAIN;
-
+    
                 if (checkBoxStates.isBold()) {
                     style |= Font.BOLD;
                 }
-
+    
+                Font newFont = font.deriveFont(style);
+                selectedTextField.setFont(newFont);
+    
                 Map<TextAttribute, Object> attributes = new HashMap<>();
-
+    
                 if (checkBoxStates.isUnderline()) {
                     attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
                 }
-
-                Font newFont = new Font(font.getName(), style, font.getSize()).deriveFont(attributes);
+    
+                newFont = newFont.deriveFont(attributes);
                 selectedTextField.setFont(newFont);
             }
         }
@@ -70,9 +73,9 @@ public class BoldUnderline {
     // 체크 박스 설정 저장
     private static void storeCheckBoxStates(JTextField textField) {
         if (textField != null && boldBox != null && underlineBox != null) {
-            CheckBoxStates checkBoxStates = checkBoxStatesMap.get(textField);
+            TextStates checkBoxStates = checkBoxStatesMap.get(textField);
             if (checkBoxStates == null) {
-                checkBoxStates = new CheckBoxStates();
+                checkBoxStates = new TextStates();
                 checkBoxStatesMap.put(textField, checkBoxStates);
             }
             checkBoxStates.setBold(boldBox.isSelected());
@@ -83,36 +86,11 @@ public class BoldUnderline {
     // 체크 박스 설정 로드하여 선택 상태 업데이트
     private static void loadCheckBoxStates() {
         if (selectedTextField != null) {
-            CheckBoxStates checkBoxStates = checkBoxStatesMap.get(selectedTextField);
+            TextStates checkBoxStates = checkBoxStatesMap.get(selectedTextField);
             if (checkBoxStates != null) { // null 체크 추가
                 boldBox.setSelected(checkBoxStates.isBold());
                 underlineBox.setSelected(checkBoxStates.isUnderline());
             }
         }
-    }
-
-    // 체크 박스
-    private static class CheckBoxStates {
-        private boolean bold; // bold 상태 나타냄
-        private boolean underline; // underline 상태 나타냄
-
-        public boolean isBold() { // bold 선택 여부 반환
-            return bold;
-        }
-
-        public void setBold(boolean bold) {
-            this.bold = bold;
-        }
-
-        public boolean isUnderline() { // ubderline 선택 여부 반환
-            return underline;
-        }
-
-        public void setUnderline(boolean underline) {
-            this.underline = underline;
-        }
-    }
-
-    public class textSetting {
     }
 }
