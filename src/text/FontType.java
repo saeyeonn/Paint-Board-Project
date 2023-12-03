@@ -61,7 +61,6 @@ public class FontType {
                 }
     
                 Font newFont = new Font(name, font.getStyle(), font.getSize()).deriveFont(attributes);
-                System.out.println("폰트 변경.."+FontStates.isBold()+FontStates.isUnderline());
                 selectedTextField.setFont(newFont);  // 그 폰트 객체에 맞게 새로운 글꼴 적용
             }
         }

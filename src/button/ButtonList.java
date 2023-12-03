@@ -5,6 +5,7 @@ import action.Buttonfocus;
 
 import javax.swing.*;
 import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +31,7 @@ public class ButtonList {
                     Button button = new Button(filepath, file.getName().replace(".png", ""));
                     addListener(button); // add ButtonActionListener
                     buttonList.add(button); // generate buttonList
+
                 }
             }
         }
@@ -41,17 +43,22 @@ public class ButtonList {
 
     private void addListener(Button button) { // set border painting when user clicks button
             button.addActionListener(new ButtonAction());
-            button.addFocusListener(new Buttonfocus() {
+            Buttonfocus buttonfocus = new Buttonfocus();
+            button.addFocusListener(new FocusListener() {
+
                 @Override
                 public void focusGained(FocusEvent e) {
                     JButton srcButton = (JButton) e.getSource();
                     srcButton.setFocusPainted(true);
+                    Buttonfocus.focusGained(e);
+
                 }
 
                 @Override
                 public void focusLost(FocusEvent e) {
                     JButton srcButton = (JButton) e.getSource();
                     srcButton.setFocusPainted(false);
+                    Buttonfocus.focusLost(e);
                 }
             });
     }

@@ -5,9 +5,10 @@ import shape.Circle;
 import shape.ShapingController;
 import shape.Triangle;
 import text.TextBox;
+import zoom.Zoom;
 
 import javax.swing.*;
-import java.awt.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -21,6 +22,7 @@ public class ButtonAction implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton selectButton = (JButton) e.getSource();
+        Zoom zoom = new Zoom();
 
         String Name=selectButton.getName();
 
@@ -31,23 +33,15 @@ public class ButtonAction implements ActionListener {
         } else if (Name.equals("28_textBox")) {
             TextBox textBox = new TextBox();
             textBox.setCreating();
+
         } else if (Name.equals("redo")) {
             System.out.println("리두");
+
         } else if (Name.equals("undo")) {
             System.out.println("언두");
-        } else if (Name.equals("zoomIn")) {
-            System.out.println("줌인");
-        } else if (Name.equals("18_rectangular")) {
-            ShapingController sc= new ShapingController();
-            System.out.println("사각형 버튼");
-            sc.iniRect();
 
-        } else if (Name.equals("19_triangle")) {
-            ShapingController sc= new ShapingController();
-            sc.iniTri();
-        } else if (Name.equals("20_circle")) {
-            ShapingController sc= new ShapingController();
-            sc.iniCir();
+        } else if (Name.equals("zoomIn")) {
+
         }
 
 
