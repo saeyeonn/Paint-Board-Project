@@ -1,19 +1,26 @@
 package window;
 
-import drawing.Pen;
-
 import javax.swing.*;
 
+import shape.Shape;
+import shape.ShapingController;
 import text.TextBox;
 
 import java.awt.*;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.util.ArrayList;
 
 public class PanelForm extends JPanel{
     private TextBox textBox;
+
+    ShapingController shapingController;
+
+    @Override
+    protected void paintComponent(Graphics g){
+        super.paintComponent(g);//패널 초기화=다 지움
+        shapingController.drawShapes();
+    }
 
     public PanelForm() {
         add(MiniBarForm.getInstance(), BorderLayout.NORTH); // add minibar
@@ -21,8 +28,13 @@ public class PanelForm extends JPanel{
         setLayout(new FlowLayout());
 
         textBox = new TextBox(PanelForm.this);
+        shapingController = new ShapingController(this);
 
-        addMouseListener(new MouseListener() {
+
+
+        addMouseListener(new MouseAdapter() {
+            //MouseAdapter는 MouseListener 인터페이스를 구현한 추상 클래스
+            //상위 호환 버전이라고 보면 됨. 모든 메서드를 구현할 필요없음.
 
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -32,20 +44,16 @@ public class PanelForm extends JPanel{
 
             @Override
             public void mousePressed(MouseEvent e) {
-
-                startX = e.getX(); // 마우스가 눌렸을때 그때의 X좌표값으로 초기화
-                startY = e.getY();
-                System.out.println("누름: " + startX +","+startY);
+                shapingController.press(e);
             }
-
             @Override
-            public void mouseReleased(MouseEvent e) {}
-
+            public void mouseDragged(MouseEvent e){
+                shapingController.drag(e);
+            }
             @Override
-            public void mouseEntered(MouseEvent e) {}
-
-            @Override
-            public void mouseExited(MouseEvent e) {}
+            public void mouseReleased(MouseEvent e) {
+                shapingController.release(e);
+            }
 
         });
     }
@@ -53,12 +61,5 @@ public class PanelForm extends JPanel{
     public synchronized void addMouseMotionListener(MouseMotionListener l) {
 
     }
-
-    public int getStartX(){
-        return startX;
-    };
-    public int getStartY(){
-        return startY;
-    };
 
 }

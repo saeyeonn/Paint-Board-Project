@@ -27,8 +27,8 @@ public class Pen implements Draw {int startX=0; // 마우스클릭시작의 X좌
 
         PanelForm panel= new PanelForm();
         while (startX==0) {
-            startX = panel.getStartX();
-            startY = panel.getStartY();
+//            startX = panel.getStartX();
+//            startY = panel.getStartY();
         }
         System.out.println("Pen으로 좌표 전송성공");
 

@@ -1,9 +1,13 @@
 package action;
 
 import drawing.Pen;
+import shape.Circle;
+import shape.ShapingController;
+import shape.Triangle;
 import text.TextBox;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,12 +23,9 @@ public class ButtonAction implements ActionListener {
         JButton selectButton = (JButton) e.getSource();
 
         String Name=selectButton.getName();
-<<<<<<< HEAD
-        
-    }
-=======
+
         if (Name.equals("25_pen")) {
-            // Pen 버튼을 눌렀을 때 
+            // Pen 버튼을 눌렀을 때
             Pen pen= new Pen();
             //pen.draw((Button) selectButton);
         } else if (Name.equals("28_textBox")) {
@@ -36,10 +37,19 @@ public class ButtonAction implements ActionListener {
             System.out.println("언두");
         } else if (Name.equals("zoomIn")) {
             System.out.println("줌인");
-        } else if (Name.equals("zoomOut")) {
-            System.out.println("줌아웃");
+        } else if (Name.equals("18_rectangular")) {
+            ShapingController sc= new ShapingController();
+            sc.iniRect();
+            System.out.println("사각형 버튼");
+        } else if (Name.equals("19_triangle")) {
+            ShapingController sc= new ShapingController();
+            sc.iniTri();
+        } else if (Name.equals("20_circle")) {
+            ShapingController sc= new ShapingController();
+            sc.iniCir();
         }
->>>>>>> 7e7243e90456dd1fdf809646bb955eaf253566ba
+
 
     }
+
 }
