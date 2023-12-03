@@ -14,13 +14,16 @@ import java.awt.event.MouseWheelListener;
 
 public class PanelForm extends JPanel{
     private TextBox textBox;
+    private Zoom zoom;
+    private PixelEraser pixelEraser;
 
     public PanelForm() {
         add(MiniBarForm.getInstance(), BorderLayout.NORTH); // add minibar
         setBackground(Color.white);
         setLayout(new FlowLayout());
 
-
+        textBox = new TextBox(PanelForm.this);
+        pixelEraser = new PixelEraser(PanelForm.this);
 
         addMouseListener(new MouseListener() {
             @Override
