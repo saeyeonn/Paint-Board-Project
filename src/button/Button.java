@@ -1,11 +1,7 @@
 package button;
 
-import action.ButtonAction;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 
 public class Button extends JButton {
 
@@ -19,4 +15,6 @@ public class Button extends JButton {
         setPreferredSize(new Dimension(35, 35));
 
     }
+
+
 }

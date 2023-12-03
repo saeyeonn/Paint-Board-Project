@@ -22,7 +22,7 @@ public class LineEraser implements Erase, MouseListener {
     @Override
     public void eraseLine(int startX, int startY, int endX, int endY) {
         Graphics2D g = bufferedImage.createGraphics();
-        g.setColor(Color.WHITE);
+        g.setColor(Color.BLACK);
         g.setStroke(new BasicStroke(2));
         g.drawLine(startX, startY, endX, endY);
         g.dispose();
@@ -50,15 +50,13 @@ public class LineEraser implements Erase, MouseListener {
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        int x = e.getX();
-        int y = e.getY();
 
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        int x = e.getX();
-        int y = e.getY();
 
     }
+
+
 }
