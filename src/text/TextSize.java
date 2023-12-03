@@ -10,7 +10,9 @@ import java.util.Map;
 
 public class TextSize {
     private static JTextField selectedTextField = null; // 현재 선택된 TB 저장
-    private static Map<JTextField, TextStates> SizeStatesMap = new HashMap<>(); // 각 TB의 체크 표시 설정 저장
+    private static Map<JTextField, TextBoxInfo> infoMap = TextMaps.infoMap;
+    private static Map<JTextField, States> statesMap = TextMaps.statesMap;
+    // private static Map<JTextField, TextStates> SizeStatesMap = new HashMap<>(); // 각 TB의 체크 표시 설정 저장
 
     private static TextSpinnerForm fontSizeSpinner;
 
@@ -33,8 +35,8 @@ public class TextSize {
         applySelectedAttributes(); // 가져온 체크 박스 설정을 바탕으로 폰트 스타일 조절
 
         // 각 TB에 대한 체크 박스 설정 객체를 생성하여 맵에 추가
-        if (!SizeStatesMap.containsKey(textField)) {
-            SizeStatesMap.put(textField, new TextStates());
+        if (!statesMap.containsKey(textField)) {
+            statesMap.put(textField, new States());
         }
     }
 
@@ -42,7 +44,7 @@ public class TextSize {
     public static void applySelectedAttributes() {
         // 선택된 TB가 있는 경우에만 작업 실행
         if (selectedTextField != null) {
-            TextStates SizeStates = SizeStatesMap.get(selectedTextField);
+            States SizeStates = statesMap.get(selectedTextField);
 
             if (SizeStates != null) { // null 체크 추가
                 Font font = selectedTextField.getFont();
@@ -69,24 +71,24 @@ public class TextSize {
         int textHeight = metrics.getHeight(); // 텍스트의 높이 측정
 
         // 텍스트 크기에 비례하여 텍스트 필드 크기 업데이트
-        textField.setSize(textWidth + 10, textHeight + 10);
-        TextBoxInfo.setW(textWidth);
-        TextBoxInfo.setH(textHeight);
+        textField.setSize(textWidth + 15, textHeight + 15);
 
         Container container = textField.getParent();
         if (container != null) {
             container.repaint();
             container.revalidate();
         }
+
+        infoMap.get(textField).wAndh(textWidth, textHeight);
     }
 
     // 현재 설정 저장
     private static void storeFontSize(JTextField textField) {
         if (textField != null && fontSizeSpinner != null) {
-            TextStates SizeStates = SizeStatesMap.get(textField);
+            States SizeStates = statesMap.get(textField);
             if (SizeStates == null) {
-                SizeStates = new TextStates();
-                SizeStatesMap.put(textField, SizeStates);
+                SizeStates = new States();
+                statesMap.put(textField, SizeStates);
             }
             int currentSize = (int) fontSizeSpinner.getValue();
             SizeStates.setFontSize(currentSize);
@@ -96,9 +98,9 @@ public class TextSize {
     // 폰트 크기 로드하여 선택 상태 업데이트
     private static void loadFontSize() {
         if (selectedTextField != null && fontSizeSpinner != null) {
-            TextStates SizeStates = SizeStatesMap.get(selectedTextField);
+            States SizeStates = statesMap.get(selectedTextField);
             if (SizeStates != null) { // null 체크 추가
-                if (SizeStates.getFontSize() <= 0) {
+                if (SizeStates.getFontSize() > 0) {
                     fontSizeSpinner.setValue(SizeStates.getFontSize());
                 }
             }
