@@ -24,6 +24,7 @@ public class PanelForm extends JPanel{
 
         textBox = new TextBox(PanelForm.this);
         pixelEraser = new PixelEraser(PanelForm.this);
+        zoom = new Zoom();
 
         addMouseListener(new MouseListener() {
             @Override
