@@ -1,6 +1,6 @@
 package controller;
 
-import domain.Board;
+import domain.panel.Board;
 
 public class SystemController {
     private SystemController() {

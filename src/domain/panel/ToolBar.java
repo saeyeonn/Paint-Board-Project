@@ -4,7 +4,7 @@ import domain.box.BoldTypeBox;
 import domain.box.LineTypeBox;
 import domain.button.Button;
 import domain.button.Buttons;
-import domain.label.TextLabel;
+import text.TextLabel;
 import text.TextCheckBoxForm;
 import text.TextComboBoxForm;
 import text.TextSpinnerForm;
@@ -16,12 +16,12 @@ import java.util.List;
 
 public class ToolBar extends JToolBar{
 
-    public ToolBar() {
+    public ToolBar(Canvas canvas) {
         setPreferredSize(new Dimension(190, 300));
         setBackground(new Color(222, 237, 239));
         setLayout(new FlowLayout());
 
-        Buttons buttonList = Buttons.create("src/resource/toolBar");
+        Buttons buttonList = Buttons.create("src/resource/toolBar", canvas);
         List<Button> buttons = buttonList.getButtons();
         ButtonRepository.getInstance().addAll(buttons);
 
@@ -51,11 +51,6 @@ public class ToolBar extends JToolBar{
         add(Box.createHorizontalStrut(5));
         add(TextCheckBoxForm.getFontBoldBox());
         add(TextCheckBoxForm.getFontUnderLineBox());
-    }
-
-
-    public static ToolBar create() {
-        return new ToolBar();
     }
 
     public ToolBar getPanel() {

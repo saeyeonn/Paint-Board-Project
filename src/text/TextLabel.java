@@ -1,4 +1,4 @@
-package domain.label;
+package text;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,7 +1,7 @@
 package domain.box;
 
 import domain.box.constants.BoldType;
-import util.ImageConverterBack;
+import resource.ImageConverterBack;
 
 import javax.swing.*;
 import java.awt.*;

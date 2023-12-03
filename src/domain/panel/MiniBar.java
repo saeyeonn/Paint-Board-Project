@@ -10,22 +10,17 @@ import java.util.List;
 
 public class MiniBar extends JPanel {
     private static final String RESOURCE_PATH = "src/resource/miniBar";
-
-    private MiniBar() {
-        initPanelConstraints(this);
+    public MiniBar(Canvas canvas) {
+        initPanelConstraints(this, canvas);
     }
 
-    public static MiniBar create() {
-        return new MiniBar();
-    }
-
-    private void initPanelConstraints(JPanel miniBar) {
+    private void initPanelConstraints(JPanel miniBar, Canvas canvas) {
         miniBar.setBackground(new Color(222, 237, 239));
         miniBar.setPreferredSize(new Dimension(200, 45));
         miniBar.setLayout(new FlowLayout());
         miniBar.setLocation(600, 50);
 
-        Buttons buttonList = Buttons.create(RESOURCE_PATH);
+        Buttons buttonList = Buttons.create(RESOURCE_PATH, canvas);
         List<Button> buttons = buttonList.getButtons();
         ButtonRepository.getInstance().addAll(buttons);
         buttons.forEach(miniBar::add);

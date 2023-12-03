@@ -2,6 +2,7 @@ package domain.button;
 
 import action.ButtonAction;
 import domain.button.constants.ButtonConstants;
+import domain.panel.Canvas;
 import event.ClickListener;
 
 import javax.swing.*;
@@ -16,7 +17,8 @@ public class Button extends JButton {
 
     public Button(
             String filepath,
-            String buttonName
+            String buttonName,
+            Canvas canvas
     ) {
         setName(buttonName);
         setIcon(ImageConverter.getIconImage(filepath, buttonName));
@@ -26,12 +28,12 @@ public class Button extends JButton {
         setPreferredSize(new Dimension(35, 35));
 
         System.out.println(buttonName + "은 " + ButtonConstants.getButtonType(buttonName).getButtonUtilityType() + "기능");
-        this.addListener();
+        this.addListener(canvas);
         this.buttonConstants = ButtonConstants.getButtonType(buttonName);
     }
 
-    private void addListener() {
-        addActionListener(new ButtonAction());
+    private void addListener(Canvas canvas) {
+        addActionListener(new ButtonAction(canvas));
         addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {

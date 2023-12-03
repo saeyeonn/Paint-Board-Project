@@ -1,7 +1,4 @@
-package domain;
-
-import domain.panel.Canvas;
-import domain.panel.ToolBar;
+package domain.panel;
 
 import javax.swing.*;
 
@@ -24,9 +21,9 @@ public class Board {
         initFrameConstraints(mainFrame);
 
         Canvas canvas = Canvas.create();
-        ToolBar toolBar = ToolBar.create();
+        Canvas canvasPanel = canvas.getPanel();
 
-        JPanel canvasPanel = canvas.getPanel();
+        ToolBar toolBar = new ToolBar(canvasPanel);
         ToolBar toolBarPanel = toolBar.getPanel();
 
         mainFrame.add(canvasPanel);
