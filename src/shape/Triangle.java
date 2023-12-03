@@ -7,7 +7,7 @@ public class Triangle implements Shape {
     private int[] yPoints;
     private boolean isSelected;
 
-
+    public Triangle(){}
     public Triangle(int x1, int y1, int x2, int y2, int x3, int y3) {
         xPoints = new int[]{x1, x2, x3};
         yPoints = new int[]{y1, y2, y3};

@@ -39,8 +39,9 @@ public class ButtonAction implements ActionListener {
             System.out.println("줌인");
         } else if (Name.equals("18_rectangular")) {
             ShapingController sc= new ShapingController();
-            sc.iniRect();
             System.out.println("사각형 버튼");
+            sc.iniRect();
+
         } else if (Name.equals("19_triangle")) {
             ShapingController sc= new ShapingController();
             sc.iniTri();

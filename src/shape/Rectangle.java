@@ -16,7 +16,7 @@ public class Rectangle implements Shape {
     private static final int BOTTOM_LEFT = 3;
 
 
-
+    public Rectangle(){}
     public Rectangle(int x, int y, int width, int height) {
         this.x = x;
         this.y = y;
@@ -34,6 +34,7 @@ public class Rectangle implements Shape {
         g2d.setColor(Color.BLACK);
         System.out.println("사각형 그려보자");
         g2d.drawRect(x, y, width, height);
+        System.out.println("다 그렸다");
 
         if (isSelected) {
             Stroke oldStroke = g2d.getStroke();
@@ -49,6 +50,7 @@ public class Rectangle implements Shape {
             g2d.fillOval(x + width - RESIZE_HANDLE_SIZE / 2, y + height - RESIZE_HANDLE_SIZE / 2, RESIZE_HANDLE_SIZE, RESIZE_HANDLE_SIZE);
             g2d.fillOval(x - RESIZE_HANDLE_SIZE / 2, y + height - RESIZE_HANDLE_SIZE / 2, RESIZE_HANDLE_SIZE, RESIZE_HANDLE_SIZE);
         }
+        System.out.println("다시복귀");
     }
 
     @Override

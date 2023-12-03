@@ -5,6 +5,7 @@ import java.awt.*;
 public class Circle implements Shape {
     private int x, y, radius;
     private boolean isSelected;
+    public Circle(){}
 
     public Circle(int x, int y, int radius) {
         this.x = x;

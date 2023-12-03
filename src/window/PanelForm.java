@@ -2,24 +2,45 @@ package window;
 
 import javax.swing.*;
 
+import shape.*;
+import shape.Rectangle;
 import shape.Shape;
-import shape.ShapingController;
 import text.TextBox;
 
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PanelForm extends JPanel{
     private TextBox textBox;
-
-    ShapingController shapingController;
-
+    private ShapingController shapingController;
     @Override
-    protected void paintComponent(Graphics g){
+    protected void paintComponent(Graphics g) {
         super.paintComponent(g);//패널 초기화=다 지움
-        shapingController.drawShapes();
+        Graphics2D g2d = (Graphics2D) g;
+
+        List<Shape> note=shapingController.sibal();
+        int i=0;
+        for (Shape shape : note){
+            i++;
+            System.out.println(i+"개");
+            shape.draw(g2d);
+//            if (shape instanceof Triangle){
+//                Triangle t= new Triangle();
+//                t.draw(g2d);
+//            }else if (shape instanceof Rectangle){
+//                Rectangle r= new Rectangle();
+//                r.draw(g2d);
+//            }else if (shape instanceof Circle){
+//                Circle c = new Circle();
+//                c.draw(g2d);
+//            } else {
+//                //line draw
+//            }
+        }
     }
 
     public PanelForm() {
@@ -28,7 +49,9 @@ public class PanelForm extends JPanel{
         setLayout(new FlowLayout());
 
         textBox = new TextBox(PanelForm.this);
-        shapingController = new ShapingController(this);
+        shapingController = new ShapingController(PanelForm.this);
+
+        ShapingController shapingController=new ShapingController();
 
 
 
@@ -52,7 +75,7 @@ public class PanelForm extends JPanel{
             }
             @Override
             public void mouseReleased(MouseEvent e) {
-                shapingController.release(e);
+                shapingController.release();
             }
 
         });
