@@ -4,7 +4,6 @@ import drawing.Pen;
 import text.TextBox;
 
 import javax.swing.*;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -23,6 +22,7 @@ public class ButtonAction implements ActionListener {
             TextBox textBox = new TextBox();
             textBox.setCreating();
         }
+
     }
 
 }

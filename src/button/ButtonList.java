@@ -1,10 +1,10 @@
 package button;
 
 import action.ButtonAction;
+import action.Buttonfocus;
 
 import javax.swing.*;
 import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +41,7 @@ public class ButtonList {
 
     private void addListener(Button button) { // set border painting when user clicks button
             button.addActionListener(new ButtonAction());
-            button.addFocusListener(new FocusListener() {
+            button.addFocusListener(new Buttonfocus() {
                 @Override
                 public void focusGained(FocusEvent e) {
                     JButton srcButton = (JButton) e.getSource();

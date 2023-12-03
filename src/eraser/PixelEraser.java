@@ -16,7 +16,7 @@ public class PixelEraser implements Erase, MouseMotionListener {
     @Override
     public void erasePixel(int x, int y) {
         Graphics2D g = bufferedImage.createGraphics();
-        g.setColor(Color.WHITE);
+        g.setColor(Color.BLACK);
         g.fillRect(x, y, 1, 1);
         g.dispose();
     }
