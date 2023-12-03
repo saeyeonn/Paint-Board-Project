@@ -11,8 +11,8 @@ import java.io.IOException;
 public class Saving extends JFileChooser {
     public Saving(Canvas canvas) {
         setFileFilter(new FileNameExtensionFilter("*.png", "png"));
-        int rVal = showSaveDialog(null);
-        if (rVal == APPROVE_OPTION) {
+        int imageValue = showSaveDialog(null);
+        if (imageValue == APPROVE_OPTION) {
             File file = getSelectedFile();
             try {
                 ImageIO.write(canvas.bufferedImage, "png", new File(file.getAbsolutePath()));
@@ -22,7 +22,7 @@ public class Saving extends JFileChooser {
                 System.out.println("Failed to save image");
             }
         }
-        if (rVal == JFileChooser.CANCEL_OPTION) {
+        if (imageValue == JFileChooser.CANCEL_OPTION) {
             System.out.println("No file choosen");
         }
 
