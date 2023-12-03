@@ -2,6 +2,7 @@ package eraser;
 
 import action.ButtonAction;
 import button.Button;
+import window.PanelForm;
 
 import javax.swing.*;
 import java.awt.event.*;
@@ -9,8 +10,17 @@ import java.awt.image.BufferedImage;
 
 public class EraserController implements MouseListener{
 
+    private PanelForm panelForm;
+
+    public EraserController(){
+
+        panelForm = new PanelForm();
+        pixelEraser=new PixelEraser(panelForm);
+    }
+
     private BufferedImage image;
     private LineEraser lineEraser;
+    private PixelEraser pixelEraser;
 
     private int startX, startY, endX, endY;
 
@@ -28,7 +38,6 @@ public class EraserController implements MouseListener{
                 JButton clickedButton = (JButton) e.getSource();
                 String buttonName = clickedButton.getName();
                 if (buttonName.equals("21_lineEraser")) {
-                    System.out.println("실험1");
                     activateLineEraser();
                 } else if (buttonName.equals("22_pixelEraser")) {
                     activatePixelEraser();
@@ -53,9 +62,8 @@ public class EraserController implements MouseListener{
     }
 
 
-    private void activatePixelEraser() {
-        PixelEraser pixelEraser = new PixelEraser(image);
-        pixelEraser.erasePixel(startX,startY);
+    public void activatePixelEraser() {
+        pixelEraser.setEraserActivated(true);
     }
 
     public void useEraser(int startX, int startY, int endX, int endY) {

@@ -1,21 +1,26 @@
 package action;
 
+import eraser.EraserController;
+
 import javax.swing.*;
 import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 
-public class Buttonfocus implements FocusListener {
-    @Override
-    public void focusGained(FocusEvent e) {
+public class Buttonfocus  {
+
+    public static void focusGained(FocusEvent e) {
         JButton selectButton = (JButton) e.getSource();
         String Name=selectButton.getName();
         if (Name.equals("22_pixelEraser")){
-            System.out.println("실험1");
-        }
-    }
+            System.out.println("픽셀지우개 활성화");
+            EraserController eraserController = new EraserController();
+            eraserController.activatePixelEraser();
 
-    @Override
-    public void focusLost(FocusEvent e) {
+    }}
+
+    public static void focusLost(FocusEvent e) {
+        JButton selectButton = (JButton) e.getSource();
+        String Name=selectButton.getName();
+
 
     }
 }
