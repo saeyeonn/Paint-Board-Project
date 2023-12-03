@@ -1,10 +1,9 @@
 package window;
-import text.FontType;
-import text.TextSize;
-
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+
+import text.TextSize;
 
 import java.awt.*;
 
@@ -22,13 +21,13 @@ public class TextSpinnerForm extends JSpinner{
         @Override
         public void stateChanged(ChangeEvent e) {
             if (e.getSource() instanceof JSpinner) {
-                FontType.FontTypeSetting();
                 JSpinner spinner = (JSpinner) e.getSource();
                 Object value = spinner.getValue();
                 System.out.println("Spinner value changed: " + value);
             }
 
-            TextSize.applySelectedAttributes();
+            TextSize textSize = new TextSize(fontSizeSpinner);
+            textSize.setting();
         }
     }
 
