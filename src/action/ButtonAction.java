@@ -6,6 +6,8 @@ import domain.panel.Canvas;
 import painting.BackgroundColor;
 import repository.ButtonRepository;
 import repository.SelectionRepository;
+import shape.Shape;
+import shape.ShapeMaker;
 import text.TextBox;
 import util.ImageLoading;
 import util.Saving;
@@ -14,11 +16,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class ButtonAction implements ActionListener {
     private Board board;
     private Canvas canvas;
     private static Color color;
+    private ShapeMaker shapeMaker = new ShapeMaker(canvas);
 
     public ButtonAction(Canvas canvas) {
         this.canvas = canvas;
@@ -43,7 +47,6 @@ public class ButtonAction implements ActionListener {
                 button.addActionListener(e1 -> {
                     color = JColorChooser.showDialog(new Container(), "Color Chooser", Color.LIGHT_GRAY);
                 });
-
             }
 
         } else if (button.isActionButton()) {
@@ -64,14 +67,11 @@ public class ButtonAction implements ActionListener {
             System.out.println("이제 배경 칠할거임 -> " + color);
         } else if (name.equals("16_reset")) {
             canvas.repaint();
-        } else if (name.equals("17_line")) {
-            canvas.setDrawLine(true);
-        } else if (name.equals("18_rectangular")) {
-            canvas.setDrawRectangle(true);
-        } else if (name.equals("19_triangle")) {
-            canvas.setDrawTriangle(true);
-        } else if (name.equals("20_circle")) {
-            canvas.setDrawCircle(true);
+        } else if (name.equals("17_line")
+                || name.equals("18_rectangular")
+                || name.equals("19_triangle")
+                || name.equals("20_circle")) {
+            shapeMaker.addShape(name);
         }
     }
 }

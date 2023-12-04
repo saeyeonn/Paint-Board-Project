@@ -1,13 +1,10 @@
 package action;
 
 import domain.panel.Canvas;
-import eraser.EraserController;
 import eraser.PixelEraser;
 import shape.Shape;
 import text.TextBox;
-import util.ImageLoading;
 
-import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
@@ -18,6 +15,8 @@ public class PanelMouseListener {
     private TextBox textBox;
     private PixelEraser pixelEraser;
 
+    private static Shape currentShape;
+    private static List<Shape> shapes= new ArrayList<>();
 
     public PanelMouseListener(Canvas canvas) {
         this.canvas = canvas;
@@ -33,6 +32,8 @@ public class PanelMouseListener {
             public void mouseClicked(MouseEvent e) {
                 textBox.click(e);
                 textBox.arrangeTextBoxes(); // 위치 설정 추가
+
+
             }
 
             @Override
