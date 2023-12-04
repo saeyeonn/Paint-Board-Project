@@ -39,7 +39,7 @@ public class ShapingController {
         System.out.println("동그라미");
     }
     public void iniLine(){
-        Line line= new Line(20,20,40,40);
+        Line line= new Line(0,0,40,40);
         currentShape=line;
         System.out.println("직선");
     }
@@ -76,6 +76,7 @@ public class ShapingController {
             }
         }
         System.out.println("이전 도형 해제");
+
         Shape clickedShape = getSelectedShape(e.getX(), e.getY());
         System.out.println("clickedShape:" +clickedShape);
 
@@ -105,13 +106,16 @@ public class ShapingController {
 
     public void drag(MouseEvent e){//mouseDragged
         // 마우스 드래그 동안 현재 도형의 위치를 업데이트
-        if (currentShape != null) {
+        if (currentShape != null && !(currentShape instanceof Line)) {
             currentShape.move(e.getX(), e.getY());
             // SwingUtilities.invokeLater(() -> panel.repaint());
             panel.repaint(); // 화면을 다시 그리도록 요청/
         }System.out.println("움직임");
     }
-    public void release(){//mouseReleased
+    public void release(MouseEvent e){//mouseReleased
+        if (currentShape instanceof Line) {
+            currentShape.move(e.getX(), e.getY());
+        }
         currentShape = null; // 현재 그리고 있는 도형 초기화
         panel.repaint();
         System.out.println("해제");

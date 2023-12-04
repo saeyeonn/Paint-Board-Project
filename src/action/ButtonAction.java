@@ -44,8 +44,8 @@ public class ButtonAction implements ActionListener {
 
         }else if (Name.equals("17_line")) {
             ShapingController sc= new ShapingController();
-            
-            System.out.println("라인");
+            System.out.println("라인 버튼");
+            sc.iniLine();            
 
         }else if (Name.equals("18_rectangular")) {
             ShapingController sc= new ShapingController();

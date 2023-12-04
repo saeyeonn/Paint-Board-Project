@@ -3,7 +3,7 @@ package shape;
 import java.awt.*;
 public class Line implements Shape {
     
-    private int x1, y1, x2, y2;
+    private static int x1, y1, x2, y2;
     private boolean isSelected;
 
     public Line(){}
@@ -55,7 +55,13 @@ public class Line implements Shape {
 
     @Override
     public void move(int x, int y) {
-
+        if (x1==0 && y1==0) { //초기상태이면, 즉 시작점을 아직 안받았으면
+            x1=x;
+            y1=y;
+        } else{ //끝점 받을때
+            x2=x;
+            y2=y;
+        }
     }
 
     @Override
