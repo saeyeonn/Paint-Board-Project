@@ -56,7 +56,7 @@ public class PanelForm extends JPanel{
             
             @Override
             public void mouseReleased(MouseEvent e) {
-                shapingController.release();
+                shapingController.release(e);
             }
     
         });
