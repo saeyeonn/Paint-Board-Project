@@ -10,6 +10,7 @@ import zoom.Zoom;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseWheelListener;
 import java.util.List;
 
@@ -52,15 +53,20 @@ public class PanelForm extends JPanel{
             public void mousePressed(MouseEvent e) {
                 shapingController.press(e);
             }
-            @Override
-            public void mouseDragged(MouseEvent e){
-                shapingController.drag(e);
-            }
+            
             @Override
             public void mouseReleased(MouseEvent e) {
                 shapingController.release();
             }
     
+        });
+
+        addMouseMotionListener(new MouseMotionAdapter() {
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                System.out.println("드래그 시작");
+                shapingController.drag(e);
+            }
         });
 
         // // 마우스 휠 리스너 추가

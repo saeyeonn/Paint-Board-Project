@@ -32,9 +32,9 @@ public class Rectangle implements Shape {
     public void draw(Graphics2D g2d) {
         // 사각형을 그리는 로직
         g2d.setColor(Color.BLACK);
-        System.out.println("사각형 그려보자");
+        // System.out.println("사각형 그려보자");
         g2d.drawRect(x, y, width, height);
-        System.out.println("다 그렸다");
+        // System.out.println("다 그렸다");
 
         if (isSelected) {
             Stroke oldStroke = g2d.getStroke();
