@@ -26,12 +26,12 @@ public class PanelForm extends JPanel{
 
         List<Shape> note=shapingController.sibal();
         int i=0;
-        for (Shape shape : note){
+        for (: note){
             i++;
             System.out.println(i+"개");
             shape.draw(g2d);
         }
-    }
+    }*/
 
     public PanelForm() {
         add(MiniBarForm.getInstance(), BorderLayout.NORTH); // add minibar
