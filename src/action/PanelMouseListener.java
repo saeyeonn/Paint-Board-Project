@@ -37,12 +37,12 @@ public class PanelMouseListener {
 
             @Override
             public void mousePressed(MouseEvent e) {
-            /*    if (pixelEraser != null && EraserController.act) {
+                if (pixelEraser != null && EraserController.act) {
                     pixelEraser.setEraserActivated(true);
                     System.out.println(EraserController.act);
                 } else {
                     pixelEraser.setEraserNotActivated();
-                }*/
+                }
             }
 
             @Override

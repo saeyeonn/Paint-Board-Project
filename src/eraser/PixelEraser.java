@@ -41,6 +41,7 @@ public class PixelEraser  {
         g.setColor(Color.black); // 패널의 배경색으로 설정
         g.fillRect(x - eraserSize / 2, y - eraserSize / 2, eraserSize, eraserSize);
         g.dispose();
+
     }
 
     public void setEraserActivated(boolean activated) {

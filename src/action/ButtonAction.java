@@ -18,6 +18,7 @@ import java.awt.event.ActionListener;
 public class ButtonAction implements ActionListener {
     private Board board;
     private Canvas canvas;
+    Color fillColor = Color.white;
     private static Color color;
 
     public ButtonAction(Canvas canvas) {
@@ -52,6 +53,16 @@ public class ButtonAction implements ActionListener {
         System.out.println();
 
 
+        if (name.equals("08_backgroundColor")) {
+            BackgroundColor backgroundColor = new BackgroundColor(canvas, color);
+            fillColor = color;
+            System.out.println("이제 배경 칠할거임 -> " + color);
+        }
+        if (name.equals("12_shapeColor")) {
+            canvas.setFillMode(true);
+            canvas.setFillColor(color);
+            System.out.println("fillcolor:"+color);
+        }
         if (name.equals("28_textBox")) {
             TextBox textBox = new TextBox();
             textBox.setCreating();
@@ -59,9 +70,6 @@ public class ButtonAction implements ActionListener {
            Saving saving = new Saving(canvas);
         } else if (name.equals("02_imageLoading")) {
             ImageLoading imageLoading = new ImageLoading(canvas);
-        } else if (name.equals("08_backgroundColor")) {
-            BackgroundColor backgroundColor = new BackgroundColor(canvas, color);
-            System.out.println("이제 배경 칠할거임 -> " + color);
         } else if (name.equals("16_reset")) {
             canvas.repaint();
         } else if (name.equals("17_line")) {

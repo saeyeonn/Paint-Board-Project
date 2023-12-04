@@ -15,16 +15,18 @@ public class Saving extends JFileChooser {
         if (imageValue == APPROVE_OPTION) {
             File file = getSelectedFile();
             try {
-                ImageIO.write(canvas.bufferedImage, "png", new File(file.getAbsolutePath()));
-                System.out.println("saved Correctly " + file.getAbsolutePath());
+                if (canvas.bufferedImage != null) { // canvas.bufferedImage가 null이 아닌지 확인
+                    ImageIO.write(canvas.bufferedImage, "png", new File(file.getAbsolutePath()));
+                    System.out.println("saved Correctly " + file.getAbsolutePath());
+                } else {
+                    System.out.println("No image to save"); // canvas.bufferedImage가 null인 경우
+                }
             } catch (IOException e1) {
-                // TODO Auto-generated catch block
                 System.out.println("Failed to save image");
             }
         }
         if (imageValue == JFileChooser.CANCEL_OPTION) {
             System.out.println("No file choosen");
         }
-
     }
 }
