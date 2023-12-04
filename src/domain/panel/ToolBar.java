@@ -57,6 +57,8 @@ public class ToolBar extends JToolBar{
         return this;
     }
 
+    int i = 0;
+
 
     protected void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
@@ -69,13 +71,14 @@ public class ToolBar extends JToolBar{
         (g).setStroke(new BasicStroke(1));
         graphics.drawRoundRect(colStartX, colStartY, colWidth, colHeight, colArcWidth, colArcHeight);
 
-        // Set and Display Shape List External Box Line
+        // Set and Display shape.Shape List External Box Line
         int shpStartX = 20, shpStartY = 170, shpWidth = 160, shpHeight = 40;
         int shpArcWidth = 7, shpArcHeight = 7;
 
         graphics.setColor(Color.BLACK);
         (g).setStroke(new BasicStroke(1));
         graphics.drawRoundRect(shpStartX, shpStartY, shpWidth, shpHeight, shpArcWidth, shpArcHeight);
+        System.out.println("graphic : "+ i++);
     }
 }
 

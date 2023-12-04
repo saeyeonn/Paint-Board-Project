@@ -1,5 +1,6 @@
 package domain.button.constants;
 
+import java.awt.*;
 import java.util.Arrays;
 
 import static domain.button.constants.ButtonUtilityType.*;
@@ -13,16 +14,16 @@ public enum ButtonConstants {
     OPEN("02_imageLoading", ACTION, null),
     GROUP("03_group", SELECTION, null),
     UNGROUP("04_ungroup", SELECTION, null),
-    RED("05_red", COLOR, null),
-    YELLOW("06_yellow", COLOR, null),
-    GREEN("07_green", COLOR, null),
+    RED("05_red", COLOR, Color.RED),
+    YELLOW("06_yellow", COLOR, Color.YELLOW),
+    GREEN("07_green", COLOR, Color.GREEN),
     BACKGROUND_COLOR("08_backgroundColor", SELECTION, null),
-    BLUE("09_blue", COLOR, null),
-    BROWN("10_brown", COLOR, null),
-    GREY("11_grey", COLOR, null),
+    BLUE("09_blue", COLOR, Color.BLUE),
+    BROWN("10_brown", COLOR, Color.PINK),
+    GREY("11_grey", COLOR, Color.GRAY),
     SHAPE_COLOR("12_shapeColor", ACTION, null),
-    WHITE("13_white", COLOR, null),
-    BLACK("14_black", COLOR, null),
+    WHITE("13_white", COLOR, Color.WHITE),
+    BLACK("14_black", COLOR, Color.BLACK),
     CUSTOM_COLOR("15_customColor", ACTION, null),
     RESET("16_reset", ACTION, null),
     LINE("17_line", SELECTION, null),
@@ -41,16 +42,15 @@ public enum ButtonConstants {
 
     private final String name;
     private final ButtonUtilityType buttonUtilityType;
-    private final String add;
+    private final Color color;
 
     ButtonConstants(
             String name,
             ButtonUtilityType buttonUtilityType,
-            String add
-    ) {
+            Color color) {
         this.name = name;
         this.buttonUtilityType = buttonUtilityType;
-        this.add = add;
+        this.color = color;
     }
 
     public static ButtonConstants getButtonType(String name) {
@@ -67,4 +67,6 @@ public enum ButtonConstants {
     public ButtonUtilityType getButtonUtilityType() {
         return buttonUtilityType;
     }
+
+    public Color getColor() { return color; }
 }

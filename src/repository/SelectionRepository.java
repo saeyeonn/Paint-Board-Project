@@ -2,6 +2,8 @@ package repository;
 
 import domain.button.Button;
 
+import java.awt.*;
+
 public class SelectionRepository {
     public static SelectionRepository instance = new SelectionRepository();
 
@@ -29,5 +31,9 @@ public class SelectionRepository {
     public void updateAction(Button button) {
         System.out.println("행위 저장값 변경" + this.actionButton.getButtonConstants() + "->" + button.getButtonConstants());
         this.actionButton = button;
+    }
+
+    public Color getColorSelection() {
+        return colorButton.getButtonConstants().getColor();
     }
 }
