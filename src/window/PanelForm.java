@@ -1,6 +1,8 @@
 package window;
 
 
+import shape.Shape;
+import shape.ShapingController;
 import text.TextBox;
 import zoom.Zoom;
 
@@ -13,27 +15,28 @@ import java.awt.event.MouseEvent;
 public class PanelForm extends JPanel{
     private TextBox textBox;
     private ShapingController shapingController;
-    @Override
+/*    @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);//패널 초기화=다 지움
         Graphics2D g2d = (Graphics2D) g;
 
         List<Shape> note=shapingController.sibal();
         int i=0;
-        for (Shape shape : note){
+        for (: note){
             i++;
             System.out.println(i+"개");
             shape.draw(g2d);
         }
-    }
+    }*/
 
     public PanelForm() {
         add(MiniBarForm.getInstance(), BorderLayout.NORTH); // add minibar
         setBackground(Color.white);
         setLayout(new FlowLayout());
 
-
-
+    }
+    /*
+    private void addMouseListner() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 textBox.click(e);
@@ -76,5 +79,5 @@ public class PanelForm extends JPanel{
     public synchronized void addMouseMotionListener(MouseMotionListener l) {
 
     }
-
+*/
 }
