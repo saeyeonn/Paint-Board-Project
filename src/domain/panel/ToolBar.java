@@ -57,7 +57,6 @@ public class ToolBar extends JToolBar{
         return this;
     }
 
-    int i = 0;
 
 
     protected void paintComponent(Graphics graphics) {
@@ -78,7 +77,6 @@ public class ToolBar extends JToolBar{
         graphics.setColor(Color.BLACK);
         (g).setStroke(new BasicStroke(1));
         graphics.drawRoundRect(shpStartX, shpStartY, shpWidth, shpHeight, shpArcWidth, shpArcHeight);
-        System.out.println("graphic : "+ i++);
     }
 }
 

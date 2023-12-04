@@ -4,7 +4,7 @@ import action.ButtonAction;
 import action.ButtonFocus;
 import domain.button.constants.ButtonConstants;
 import domain.panel.Canvas;
-import event.ClickListener;
+import eraser.EraserController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -41,15 +41,24 @@ public class Button extends JButton {
             public void focusGained(FocusEvent e) {
                 JButton srcButton = (JButton) e.getSource();
                 srcButton.setFocusPainted(true);
+                if (srcButton.getName().equals("22_pixelEraser")){
+                    System.out.println("픽셀지우개 활성화");
+                    EraserController eraserController = new EraserController(canvas);
+                    eraserController.activatePixelEraser(true);
+                }
             }
 
             @Override
             public void focusLost(FocusEvent e) {
                 JButton srcButton = (JButton) e.getSource();
                 srcButton.setFocusPainted(false);
+                if (srcButton.getName().equals("22_pixelEraser")) {
+                    EraserController eraserController = new EraserController(canvas);
+                    eraserController.NotActivatePixelEraser();
+                    System.out.println("꺼져라");
             }
-        });
-    }
+        }});
+        }
 
 
     public ButtonConstants getButtonConstants() {

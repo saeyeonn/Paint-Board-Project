@@ -6,13 +6,11 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
-import java.awt.event.MouseMotionListener;
-import java.awt.image.BufferedImage;
 
 public class PixelEraser  {
     private int eraserSize = 10; // 지우개 크기
     public boolean eraserActivated = false;
-    private Canvas canvas; // PanelForm 참조
+    private Canvas canvas;
 
     public PixelEraser(Canvas canvas) {
         this.canvas = canvas;
