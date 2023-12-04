@@ -21,7 +21,7 @@ public class ShapingController {
     //---------------버튼 클릭시 초기 도형 생성-----------------
     public void iniRect(){
         Rectangle rectangle= new Rectangle(0, 0, 60, 60);
-        shapes.add(rectangle);
+        currentShape=rectangle;
         System.out.println("만들어짐"+currentShape);
         System.out.println("사각형");
     }

@@ -1,18 +1,22 @@
 package window;
 
+import javax.swing.*;
 
+import shape.ShapingController;
+import shape.Shape;
 import text.TextBox;
 import zoom.Zoom;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.List;
 
 
 public class PanelForm extends JPanel{
     private TextBox textBox;
     private ShapingController shapingController;
+    
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);//패널 초기화=다 지움
@@ -32,8 +36,11 @@ public class PanelForm extends JPanel{
         setBackground(Color.white);
         setLayout(new FlowLayout());
 
+        textBox = new TextBox(PanelForm.this);
+        shapingController = new ShapingController(PanelForm.this);
 
-
+        addMouseListener(new MouseAdapter() {
+            
             @Override
             public void mouseClicked(MouseEvent e) {
                 textBox.click(e);
@@ -42,16 +49,17 @@ public class PanelForm extends JPanel{
 
             @Override
             public void mousePressed(MouseEvent e) {
-
+                shapingController.press(e);
             }
             @Override
-
+            public void mouseDragged(MouseEvent e){
+                shapingController.drag(e);
             }
             @Override
             public void mouseReleased(MouseEvent e) {
                 shapingController.release();
             }
-
+    
         });
 
         // 마우스 휠 리스너 추가
