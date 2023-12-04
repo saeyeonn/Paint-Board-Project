@@ -5,6 +5,7 @@ import doing.DoingList;
 import shape.Shape;
 import shape.Shapes;
 import zoom.Zoom;
+import doing.Doing;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,6 +26,7 @@ public class Canvas extends JPanel{
     private boolean drawTriangle = false;
     private boolean drawCircle = false;
     private final Zoom zoom;
+    private final Doing doing;
     private int offsetX; // 화면의 중심 좌표를 나타내는 변수
     private int offsetY;
 
@@ -41,6 +43,7 @@ public class Canvas extends JPanel{
         this.miniBarPanel = miniBarPanel;
         PanelMouseListener panelMouseListener = new PanelMouseListener(this);
         zoom = new Zoom(this);
+        doing = new Doing(this);
 
         addMouseListener(new MouseAdapter() {
             @Override
@@ -138,6 +141,10 @@ public class Canvas extends JPanel{
 
     public Zoom getZoom() {
         return zoom;
+    }
+
+    public Doing getDoing() {
+        return doing;
     }
 
     public void setOffset(int offsetX, int offsetY) {

@@ -1,6 +1,7 @@
 package doing;
 
 import domain.panel.Canvas;
+import grouping.SelectedShape;
 import shape.Shape;
 import shape.Shapes;
 
@@ -10,10 +11,8 @@ public class Doing { // 언두 리두를 총괄합니다
     private static List<Shape> shapes = Shapes.shapes;
     private static List<Shape> doingList = DoingList.doingList;
     private static Canvas canvas;
-
-    public Doing() {
-        
-    }
+    private Shape cutShape;
+    private SelectedShape selectedShape = new SelectedShape();
 
     public Doing(Canvas canvas) {
         this.canvas = canvas;
@@ -32,4 +31,21 @@ public class Doing { // 언두 리두를 총괄합니다
             canvas.repaint();
         }
     }
+
+    public void cut() {
+        cutShape = selectedShape.getSelectedShape();
+        if (cutShape != null) {
+            shapes.remove(cutShape);
+            canvas.repaint();
+        }
+    }
+
+    public void paste() {
+        if (cutShape != null) {
+            shapes.add(cutShape);
+            cutShape = null;
+            canvas.repaint();
+        }
+    }
+
 }

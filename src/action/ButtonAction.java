@@ -58,7 +58,7 @@ public class ButtonAction implements ActionListener {
             System.out.println("이제 텍박 만들 거임");
 
         } else if (name.equals("01_saving")) {
-           Saving saving = new Saving(canvas);
+            Saving saving = new Saving(canvas);
 
         } else if (name.equals("02_imageLoading")) {
             ImageLoading imageLoading = new ImageLoading(canvas);
@@ -78,6 +78,14 @@ public class ButtonAction implements ActionListener {
         } else if (name.equals("20_circle")) {
             canvas.setDrawCircle(true);
 
+        } else if (name.equals("23_cut")) {
+            canvas.getDoing().cut();
+            System.out.println("이제 잘라내기 할 거임");
+
+        } else if (name.equals("23_paste")) {
+            canvas.getDoing().paste();
+            System.out.println("이제 붙여넣기 할 거임");
+
         } else if (name.equals("zoomIn")) {
             canvas.getZoom().zoomIn();
             System.out.println("이제 줌인 할 거임");
@@ -86,11 +94,14 @@ public class ButtonAction implements ActionListener {
             canvas.getZoom().zoomOut();
             System.out.println("이제 줌아웃 할 거임");
 
-        } else if (name.equals("zoomIn")) {
+        } else if (name.equals("redo")) {
+            canvas.getDoing().redo();
             System.out.println("이제 리두 할 거임");
 
-        } else if (name.equals("zoomIn")) {
+        } else if (name.equals("undo")) {
+            canvas.getDoing().undo();
             System.out.println("이제 언두 할 거임");
+
         }
     }
 }

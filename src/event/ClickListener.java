@@ -1,6 +1,7 @@
 package event;
 
 import domain.button.Button;
+import grouping.SelectedShape;
 import repository.ButtonRepository;
 import repository.SelectionRepository;
 
@@ -10,8 +11,15 @@ import java.awt.event.ActionListener;
 
 public class ClickListener implements ActionListener {
 
+    private final SelectedShape selectedShape;
+
+    public ClickListener(SelectedShape selectedShape) {
+        this.selectedShape = selectedShape;
+    }
+
     @Override
     public void actionPerformed(ActionEvent event) {
+        Object source = event.getSource();
         JButton jButton = (JButton) event.getSource();
         Button button = ButtonRepository.getInstance().findByName(jButton.getName());
         System.out.println(button.getName() + "눌렸다 룰루");

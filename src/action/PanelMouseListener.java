@@ -2,6 +2,7 @@ package action;
 
 import domain.panel.Canvas;
 import eraser.PixelEraser;
+import grouping.SelectedShape;
 import text.TextBox;
 import zoom.Zoom;
 
@@ -14,6 +15,7 @@ public class PanelMouseListener {
     private Canvas canvas;
     private TextBox textBox;
     private Zoom zoom;
+    private SelectedShape selectedShape;
     private PixelEraser pixelEraser;
 
 
@@ -26,12 +28,14 @@ public class PanelMouseListener {
         textBox = new TextBox(canvas);
         zoom = new Zoom(canvas);
         pixelEraser = new PixelEraser(canvas);
+        selectedShape = new SelectedShape(canvas);
 
         canvas.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 textBox.click(e);
                 textBox.arrangeTextBoxes(); // 위치 설정 추가
+
             }
 
             @Override

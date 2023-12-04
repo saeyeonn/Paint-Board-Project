@@ -2,8 +2,10 @@ package shape;
 
 import java.awt.*;
 import java.awt.geom.AffineTransform;
+import java.util.Objects;
 
 public class Shape { // 각 shape의 속성값 저장
+
     private int x;
     private int y;
     private int width;
@@ -12,6 +14,7 @@ public class Shape { // 각 shape의 속성값 저장
     private boolean isRectangle;
     private boolean isTriangle;
     private boolean isCircle;
+    private boolean isSelected;//추가
 
     public Shape(int x, int y, int width, int height, boolean isLine, boolean isRectangle, boolean isTriangle, boolean isCircle) {
         this.x = x;
@@ -52,4 +55,73 @@ public class Shape { // 각 shape의 속성값 저장
 
         g2d.dispose();
     }
+
+    //-------------------밑에 추가------------------
+    // Getter and Setter for x
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    // Getter and Setter for y
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    // Getter and Setter for width
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    // Getter and Setter for height
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+    public void setSelected(boolean selected) {
+        isSelected = selected;
+    }
+    public boolean getSelected() {
+        return isSelected;
+    }
+
+    public boolean contains(int x, int y) {
+        return (this.x <= x && x <= this.x + this.width && this.y <= y && y <= this.y + this.height);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Shape shape = (Shape) obj;
+        return isSelected == shape.isSelected &&
+                x == shape.x &&
+                y == shape.y &&
+                width == shape.width &&
+                height == shape.height &&
+                isLine == shape.isLine &&
+                isRectangle == shape.isRectangle &&
+                isTriangle == shape.isTriangle &&
+                isCircle == shape.isCircle;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y, width, height, isLine, isRectangle, isTriangle, isCircle, isSelected);
+    }
+
 }
