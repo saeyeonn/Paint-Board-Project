@@ -79,9 +79,11 @@ public class ButtonAction implements ActionListener {
             canvas.setDrawCircle(true);
 
         } else if (name.equals("zoomIn")) {
+            canvas.getZoom().zoomIn();
             System.out.println("이제 줌인 할 거임");
 
         } else if (name.equals("zoomOut")) {
+            canvas.getZoom().zoomOut();
             System.out.println("이제 줌아웃 할 거임");
 
         } else if (name.equals("zoomIn")) {

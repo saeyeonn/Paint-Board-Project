@@ -23,6 +23,8 @@ public class Canvas extends JPanel{
     private boolean drawTriangle = false;
     private boolean drawCircle = false;
     private final Zoom zoom;
+    private int offsetX; // 화면의 중심 좌표를 나타내는 변수
+    private int offsetY;
 
 
     public Canvas() {
@@ -34,7 +36,6 @@ public class Canvas extends JPanel{
         setBackground(color);
         setLayout(new FlowLayout());
 
-
         this.miniBarPanel = miniBarPanel;
         PanelMouseListener panelMouseListener = new PanelMouseListener(this);
         shapes = new ArrayList<>();
@@ -44,7 +45,12 @@ public class Canvas extends JPanel{
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (drawLine || drawRectangle || drawTriangle || drawCircle) {
-                    Shape shape = new Shape(e.getX(), e.getY(), 50, 50, drawLine, drawRectangle, drawTriangle, drawCircle);
+                    // 현재 중심 좌표를 빼서 상대적인 위치로 설정
+                    Shape shape = new Shape(
+                            e.getX() - offsetX, e.getY() - offsetY,
+                            50, 50,
+                            drawLine, drawRectangle, drawTriangle, drawCircle
+                    );
                     shapes.add(shape);
                     repaint();
                 }
@@ -71,7 +77,7 @@ public class Canvas extends JPanel{
             g.drawImage(bufferedImage, 200, 30, 800, 450,null);
         }
         for (Shape shape : shapes) {
-            shape.draw(g);
+            shape.draw(g, zoom.getZoomFactor(), offsetX, offsetY);
         }
 
         g2d.dispose();
@@ -80,7 +86,14 @@ public class Canvas extends JPanel{
     private void applyZoom(Graphics2D g2d) {
         AffineTransform at = new AffineTransform();
         at.scale(zoom.getZoomFactor(), zoom.getZoomFactor());
+        System.out.print("스케일 조정함" + zoom.getZoomFactor());
+        at.translate(offsetX, offsetY); // 중심 좌표로 이동
         g2d.setTransform(at);
+    }
+
+    public void applyZoom() {
+        repaint();
+        System.out.print("다시 그려!");
     }
 
     public void changeBackground(Color color) {
@@ -120,5 +133,10 @@ public class Canvas extends JPanel{
         return zoom;
     }
 
+    public void setOffset(int offsetX, int offsetY) {
+        this.offsetX = offsetX;
+        this.offsetY = offsetY;
+        repaint();
+    }
 
 }

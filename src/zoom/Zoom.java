@@ -15,7 +15,7 @@ public class Zoom extends JPanel{
     public void zoomIn() {
         zoomFactor *= 1.1; // 필요에 따라 조절
         notifyCanvas();
-        System.out.println("줌 인");
+        System.out.println("줌 인"+zoomFactor);
     }
 
     public void zoomOut() {
@@ -25,7 +25,7 @@ public class Zoom extends JPanel{
             notifyCanvas();
         }
 
-        System.out.println("줌 아웃");
+        System.out.println("줌 아웃"+zoomFactor);
     }
 
     public double getZoomFactor() {
@@ -33,7 +33,7 @@ public class Zoom extends JPanel{
     }
 
     private void notifyCanvas() {
-        canvas.repaint();
+        canvas.applyZoom();
     }
 
 }

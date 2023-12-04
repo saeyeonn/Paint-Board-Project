@@ -78,7 +78,7 @@ public class ToolBar extends JToolBar{
         graphics.setColor(Color.BLACK);
         (g).setStroke(new BasicStroke(1));
         graphics.drawRoundRect(shpStartX, shpStartY, shpWidth, shpHeight, shpArcWidth, shpArcHeight);
-        System.out.println("graphic : "+ i++);
+        //System.out.println("graphic : "+ i++);
     }
 }
 
