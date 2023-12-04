@@ -42,6 +42,22 @@ public class ButtonAction implements ActionListener {
 
         } else if (Name.equals("zoomIn")) {
 
+        }else if (Name.equals("17_line")) {
+            ShapingController sc= new ShapingController();
+            
+            System.out.println("라인");
+
+        }else if (Name.equals("18_rectangular")) {
+            ShapingController sc= new ShapingController();
+            System.out.println("사각형 버튼");
+            sc.iniRect();
+
+        } else if (Name.equals("19_triangle")) {
+            ShapingController sc= new ShapingController();
+            sc.iniTri();
+        } else if (Name.equals("20_circle")) {
+            ShapingController sc= new ShapingController();
+            sc.iniCir();
         }
 
 

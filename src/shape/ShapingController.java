@@ -28,13 +28,13 @@ public class ShapingController {
 
     public void iniTri(){
         Triangle triangle = new Triangle(0, 0, 40, 80, -40, 80);
-        shapes.add(triangle);
+        currentShape=triangle;
         System.out.println("만들어짐"+currentShape);
         System.out.println("삼각형");
     }
     public void iniCir(){
         Circle circle = new Circle(0, 0, 50);
-        shapes.add(circle);
+        currentShape=circle;
         System.out.println("만들어짐"+currentShape);
         System.out.println("동그라미");
     }
