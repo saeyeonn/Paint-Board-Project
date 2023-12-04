@@ -1,17 +1,11 @@
 package action;
 
 import domain.panel.Canvas;
-import eraser.EraserController;
 import eraser.PixelEraser;
-import shape.Shape;
 import text.TextBox;
-import util.ImageLoading;
 
-import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.ArrayList;
-import java.util.List;
 
 public class PanelMouseListener {
     private Canvas canvas;
@@ -28,6 +22,7 @@ public class PanelMouseListener {
         textBox = new TextBox(canvas);
         pixelEraser = new PixelEraser(canvas);
 
+
         canvas.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -37,12 +32,7 @@ public class PanelMouseListener {
 
             @Override
             public void mousePressed(MouseEvent e) {
-            /*    if (pixelEraser != null && EraserController.act) {
-                    pixelEraser.setEraserActivated(true);
-                    System.out.println(EraserController.act);
-                } else {
-                    pixelEraser.setEraserNotActivated();
-                }*/
+                pixelEraser.activatePixelEraser();
             }
 
             @Override

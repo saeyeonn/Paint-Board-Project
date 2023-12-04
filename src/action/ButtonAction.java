@@ -72,6 +72,8 @@ public class ButtonAction implements ActionListener {
             canvas.setDrawTriangle(true);
         } else if (name.equals("20_circle")) {
             canvas.setDrawCircle(true);
+        } else if (name.equals("22_pixelEraser")){
+            canvas.setEraser(true);
         }
     }
 }
