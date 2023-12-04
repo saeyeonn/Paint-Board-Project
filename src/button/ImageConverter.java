@@ -2,8 +2,6 @@ package button;
 
 import javax.swing.*;
 import java.awt.*;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
 public class ImageConverter {
     private static int width = 25, height = 25;

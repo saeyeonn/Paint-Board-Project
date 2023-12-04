@@ -1,26 +1,26 @@
 package action;
 
-import drawing.drawingController;
+//import drawing.Drawing;
 import eraser.EraserController;
 
 import javax.swing.*;
 import java.awt.event.FocusEvent;
 
 public class Buttonfocus  {
+    private static EraserController eraserController = new EraserController();
+    // private static Drawing drawing = new Drawing();
+
     public static void focusGained(FocusEvent e) {
         JButton selectButton = (JButton) e.getSource();
         String Name=selectButton.getName();
         if (Name.equals("22_pixelEraser")){
-            EraserController eraserController = new EraserController();
             eraserController.activatePixelEraser(true);
 
-        }
-        else if(Name.equals("21_lineEraser")){
-            EraserController eraserController = new EraserController();
+        } else if(Name.equals("21_lineEraser")){
             eraserController.activateLineEraser();
-        } else if (Name.equals("25_pen")) {
-            drawingController drawingController = new drawingController();
 
+        } else if (Name.equals("25_pen")) {
+            //drawing.activeDrawing();
         }
     }
 
@@ -29,9 +29,9 @@ public class Buttonfocus  {
         String lostFocusButtonName = lostFocusButton.getName();
 
         if (lostFocusButtonName.equals("22_pixelEraser")) {
-            EraserController eraserController = new EraserController();
             eraserController.deactivatePixelEraser();
-
-
+        } else if (lostFocusButtonName.equals("25_pen")) {
+            //drawing.deactiveDrawing();
+        }
     }
-}}
+}

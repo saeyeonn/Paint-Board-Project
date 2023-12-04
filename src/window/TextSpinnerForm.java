@@ -15,7 +15,7 @@ public class TextSpinnerForm extends JSpinner{
         setPreferredSize(new Dimension(width, height));
         setValue(12);
         addChangeListener(new ChangeDetector());
-      }
+    }
 
     private class ChangeDetector implements ChangeListener {
         @Override

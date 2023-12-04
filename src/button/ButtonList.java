@@ -43,7 +43,6 @@ public class ButtonList {
 
     private void addListener(Button button) { // set border painting when user clicks button
             button.addActionListener(new ButtonAction());
-            Buttonfocus buttonfocus = new Buttonfocus();
             button.addFocusListener(new FocusListener() {
 
                 @Override

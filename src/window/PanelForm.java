@@ -6,7 +6,10 @@ import text.TextBox;
 import zoom.Zoom;
 
 import javax.swing.*;
+
+//import drawing.Drawing;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseWheelEvent;
@@ -14,6 +17,7 @@ import java.awt.event.MouseWheelListener;
 
 public class PanelForm extends JPanel{
     private TextBox textBox;
+    //private Drawing drawing;
     private Zoom zoom;
     private PixelEraser pixelEraser;
 
@@ -23,6 +27,7 @@ public class PanelForm extends JPanel{
         setLayout(new FlowLayout());
 
         textBox = new TextBox(PanelForm.this);
+        //drawing = new Drawing(PanelForm.this);
         pixelEraser = new PixelEraser(PanelForm.this);
         zoom = new Zoom();
 
@@ -31,6 +36,8 @@ public class PanelForm extends JPanel{
             public void mouseClicked(MouseEvent e) {
                 textBox.click(e);
                 textBox.arrangeTextBoxes(); // 위치 설정 추가
+
+                //drawing.click(e);
             }
 
             @Override
@@ -45,9 +52,7 @@ public class PanelForm extends JPanel{
 
             @Override
             public void mouseReleased(MouseEvent e) {
-
-
-
+                //drawing.Release(e);
             }
 
             @Override
@@ -58,6 +63,14 @@ public class PanelForm extends JPanel{
             @Override
             public void mouseExited(MouseEvent e) {
 
+            }
+
+        });
+
+        addMouseMotionListener(new MouseAdapter() {
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                //drawing.Drag(e);
             }
         });
 

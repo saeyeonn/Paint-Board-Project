@@ -1,4 +1,4 @@
 package drawing;
 
-public class Spray implements Draw{
+public class Spray{
 }

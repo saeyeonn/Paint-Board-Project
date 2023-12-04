@@ -3,7 +3,7 @@ package drawing;
 import javax.swing.*;
 import java.awt.*;
 
-public class Pen implements Draw{
+public class Pen{
 
 
 
