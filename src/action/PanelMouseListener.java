@@ -1,21 +1,19 @@
 package action;
 
 import domain.panel.Canvas;
-import eraser.EraserController;
 import eraser.PixelEraser;
-import shape.Shape;
 import text.TextBox;
-import util.ImageLoading;
+import zoom.Zoom;
 
-import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.ArrayList;
-import java.util.List;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
 
 public class PanelMouseListener {
     private Canvas canvas;
     private TextBox textBox;
+    private Zoom zoom;
     private PixelEraser pixelEraser;
 
 
@@ -26,6 +24,7 @@ public class PanelMouseListener {
 
     private void addMouseListener() {
         textBox = new TextBox(canvas);
+        zoom = new Zoom(canvas);
         pixelEraser = new PixelEraser(canvas);
 
         canvas.addMouseListener(new MouseListener() {
@@ -58,6 +57,23 @@ public class PanelMouseListener {
             @Override
             public void mouseExited(MouseEvent e) {
 
+            }
+        });
+
+        // 마우스 휠 리스너 추가
+        canvas.addMouseWheelListener(new MouseWheelListener() {
+            @Override
+            public void mouseWheelMoved(MouseWheelEvent e) {
+                // 마우스 휠 움직임에 따라 zoom 처리
+                int notches = e.getWheelRotation();
+                if (notches < 0) {
+                    // 마우스 휠을 위로 돌리면 줌 인
+                    zoom.zoomIn();
+                } else {
+                    // 마우스 휠을 아래로 돌리면 줌 아웃
+                    zoom.zoomOut();
+                }
+                canvas.repaint();
             }
         });
     }
