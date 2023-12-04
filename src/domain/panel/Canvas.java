@@ -16,6 +16,7 @@ public class Canvas extends JPanel{
     private Color color = Color.white;
     public BufferedImage bufferedImage;
     private List<Shape> shapes;
+    private boolean drawLine = false;
     private boolean drawRectangle = false;
     private boolean drawTriangle = false;
     private boolean drawCircle = false;
@@ -38,8 +39,8 @@ public class Canvas extends JPanel{
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (drawRectangle || drawTriangle || drawCircle) {
-                    Shape shape = new Shape(e.getX(), e.getY(), 50, 50, drawRectangle, drawTriangle, drawCircle);
+                if (drawLine || drawRectangle || drawTriangle || drawCircle) {
+                    Shape shape = new Shape(e.getX(), e.getY(), 50, 50, drawLine, drawRectangle, drawTriangle, drawCircle);
                     shapes.add(shape);
                     repaint();
                 }
@@ -72,19 +73,29 @@ public class Canvas extends JPanel{
         setVisible(true);
     }
 
+    public void setDrawLine(boolean drawLine) {
+        this.drawLine = drawLine;
+        this.drawRectangle = false;
+        this.drawTriangle = false;
+        this.drawCircle = false;
+    }
+
     public void setDrawRectangle(boolean drawRectangle) {
+        this.drawLine = false;
         this.drawRectangle = drawRectangle;
         this.drawTriangle = false;
         this.drawCircle = false;
     }
 
     public void setDrawTriangle(boolean drawTriangle) {
+        this.drawLine = false;
         this.drawRectangle = false;
         this.drawTriangle = drawTriangle;
         this.drawCircle = false;
     }
 
     public void setDrawCircle(boolean drawCircle) {
+        this.drawLine = false;
         this.drawRectangle = false;
         this.drawTriangle = false;
         this.drawCircle = drawCircle;
