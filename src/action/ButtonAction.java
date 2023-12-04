@@ -8,9 +8,6 @@ import eraser.EraserController;
 import painting.BackgroundColor;
 import repository.ButtonRepository;
 import repository.SelectionRepository;
-import shape.Circle;
-import shape.Rectangle;
-import shape.Triangle;
 import text.TextBox;
 import util.ImageLoading;
 import util.Saving;
@@ -43,6 +40,7 @@ public class ButtonAction implements ActionListener {
             SelectionRepository.getInstance().updateColor(button);
             color = button.getButtonConstants().getColor();
             System.out.println("color 변경 :" + color);
+            
         } else if (button.isActionButton()) {
             System.out.println("즉시 동작 버튼 : " + button.getButtonConstants());
         }
@@ -60,11 +58,12 @@ public class ButtonAction implements ActionListener {
             BackgroundColor backgroundColor = new BackgroundColor(canvas, color);
             System.out.println("이제 배경 칠할거임 -> " + color);
         } else if (name.equals("18_rectangular")) {
-            Rectangle rectangle = new Rectangle(300, 100, 100, 60);
+            canvas.setDrawRectangle(true);
         } else if (name.equals("19_triangle")) {
-            Triangle triangle = new Triangle(300, 100, 200, 200, 400,200);
+            canvas.setDrawTriangle(true);
         } else if (name.equals("20_circle")) {
-            Circle circle = new Circle(300,300,100);
+            canvas.setDrawCircle(true);
         }
     }
 }
+

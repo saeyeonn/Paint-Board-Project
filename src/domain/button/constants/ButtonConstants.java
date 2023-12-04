@@ -19,7 +19,7 @@ public enum ButtonConstants {
     GREEN("07_green", COLOR, Color.GREEN),
     BACKGROUND_COLOR("08_backgroundColor", SELECTION, null),
     BLUE("09_blue", COLOR, Color.BLUE),
-    BROWN("10_brown", COLOR, Color.PINK),
+    BROWN("10_brown", COLOR, Color.getHSBColor(30.0F, 1.0F, 0.588F)),
     GREY("11_grey", COLOR, Color.GRAY),
     SHAPE_COLOR("12_shapeColor", ACTION, null),
     WHITE("13_white", COLOR, Color.WHITE),

@@ -1,18 +1,27 @@
 package domain.panel;
 
 import action.PanelMouseListener;
+import shape.Shape;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Canvas extends JPanel{
     private final JPanel miniBarPanel;
     private Color color = Color.white;
     public BufferedImage bufferedImage;
+    private List<Shape> shapes;
+    private boolean drawRectangle = false;
+    private boolean drawTriangle = false;
+    private boolean drawCircle = false;
 
 
-    protected Canvas() {
+    public Canvas() {
 
         MiniBar miniBar = new MiniBar(this);
         JPanel miniBarPanel = miniBar.getPanel();
@@ -24,6 +33,18 @@ public class Canvas extends JPanel{
 
         this.miniBarPanel = miniBarPanel;
         PanelMouseListener panelMouseListener = new PanelMouseListener(this);
+        shapes = new ArrayList<>();
+
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (drawRectangle || drawTriangle || drawCircle) {
+                    Shape shape = new Shape(e.getX(), e.getY(), 50, 50, drawRectangle, drawTriangle, drawCircle);
+                    shapes.add(shape);
+                    repaint();
+                }
+            }
+        });
     }
 
     public static Canvas create() {
@@ -40,10 +61,33 @@ public class Canvas extends JPanel{
         if (bufferedImage != null) {
             g.drawImage(bufferedImage, 200, 30, 800, 450,null);
         }
+        for (Shape shape : shapes) {
+            shape.draw(g);
+        }
+
     }
 
     public void changeBackground(Color color) {
         setBackground(color);
         setVisible(true);
     }
+
+    public void setDrawRectangle(boolean drawRectangle) {
+        this.drawRectangle = drawRectangle;
+        this.drawTriangle = false;
+        this.drawCircle = false;
+    }
+
+    public void setDrawTriangle(boolean drawTriangle) {
+        this.drawRectangle = false;
+        this.drawTriangle = drawTriangle;
+        this.drawCircle = false;
+    }
+
+    public void setDrawCircle(boolean drawCircle) {
+        this.drawRectangle = false;
+        this.drawTriangle = false;
+        this.drawCircle = drawCircle;
+    }
+
 }
