@@ -1,10 +1,8 @@
 package action;
 
 import domain.button.Button;
-import domain.button.constants.ButtonConstants;
+import domain.panel.Board;
 import domain.panel.Canvas;
-import drawing.DrawingController;
-import eraser.EraserController;
 import painting.BackgroundColor;
 import repository.ButtonRepository;
 import repository.SelectionRepository;
@@ -16,9 +14,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
 
 public class ButtonAction implements ActionListener {
+    private Board board;
     private Canvas canvas;
     private static Color color;
 
@@ -42,12 +40,10 @@ public class ButtonAction implements ActionListener {
             System.out.println("color 변경 :" + color);
 
             if (button.getName().equals("15_customColor")) {
-                button.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        color = JColorChooser.showDialog(button, "Color Chooser", Color.LIGHT_GRAY);
-                    }
+                button.addActionListener(e1 -> {
+                    color = JColorChooser.showDialog(new Container(), "Color Chooser", Color.LIGHT_GRAY);
                 });
+
             }
 
         } else if (button.isActionButton()) {
@@ -66,6 +62,8 @@ public class ButtonAction implements ActionListener {
         } else if (name.equals("08_backgroundColor")) {
             BackgroundColor backgroundColor = new BackgroundColor(canvas, color);
             System.out.println("이제 배경 칠할거임 -> " + color);
+        } else if (name.equals("16_reset")) {
+            canvas.repaint();
         } else if (name.equals("17_line")) {
             canvas.setDrawLine(true);
         } else if (name.equals("18_rectangular")) {
