@@ -1,10 +1,7 @@
 package action;
 
 import domain.button.Button;
-import domain.button.constants.ButtonConstants;
 import domain.panel.Canvas;
-import drawing.DrawingController;
-import eraser.EraserController;
 import painting.BackgroundColor;
 import repository.ButtonRepository;
 import repository.SelectionRepository;
@@ -16,7 +13,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
 
 public class ButtonAction implements ActionListener {
     private Canvas canvas;
@@ -59,21 +55,40 @@ public class ButtonAction implements ActionListener {
         if (name.equals("28_textBox")) {
             TextBox textBox = new TextBox();
             textBox.setCreating();
+            System.out.println("이제 텍박 만들 거임");
+
         } else if (name.equals("01_saving")) {
            Saving saving = new Saving(canvas);
+
         } else if (name.equals("02_imageLoading")) {
             ImageLoading imageLoading = new ImageLoading(canvas);
+
         } else if (name.equals("08_backgroundColor")) {
             BackgroundColor backgroundColor = new BackgroundColor(canvas, color);
             System.out.println("이제 배경 칠할거임 -> " + color);
         } else if (name.equals("17_line")) {
             canvas.setDrawLine(true);
+
         } else if (name.equals("18_rectangular")) {
             canvas.setDrawRectangle(true);
+
         } else if (name.equals("19_triangle")) {
             canvas.setDrawTriangle(true);
+
         } else if (name.equals("20_circle")) {
             canvas.setDrawCircle(true);
+
+        } else if (name.equals("zoomIn")) {
+            System.out.println("이제 줌인 할 거임");
+
+        } else if (name.equals("zoomOut")) {
+            System.out.println("이제 줌아웃 할 거임");
+
+        } else if (name.equals("zoomIn")) {
+            System.out.println("이제 리두 할 거임");
+
+        } else if (name.equals("zoomIn")) {
+            System.out.println("이제 언두 할 거임");
         }
     }
 }

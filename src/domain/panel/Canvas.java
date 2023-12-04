@@ -2,11 +2,13 @@ package domain.panel;
 
 import action.PanelMouseListener;
 import shape.Shape;
+import zoom.Zoom;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +22,7 @@ public class Canvas extends JPanel{
     private boolean drawRectangle = false;
     private boolean drawTriangle = false;
     private boolean drawCircle = false;
+    private final Zoom zoom;
 
 
     public Canvas() {
@@ -35,6 +38,7 @@ public class Canvas extends JPanel{
         this.miniBarPanel = miniBarPanel;
         PanelMouseListener panelMouseListener = new PanelMouseListener(this);
         shapes = new ArrayList<>();
+        zoom = new Zoom(this);
 
         addMouseListener(new MouseAdapter() {
             @Override
@@ -59,6 +63,10 @@ public class Canvas extends JPanel{
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+
+        Graphics2D g2d = (Graphics2D) g.create();
+        applyZoom(g2d);
+
         if (bufferedImage != null) {
             g.drawImage(bufferedImage, 200, 30, 800, 450,null);
         }
@@ -66,6 +74,13 @@ public class Canvas extends JPanel{
             shape.draw(g);
         }
 
+        g2d.dispose();
+
+    }
+    private void applyZoom(Graphics2D g2d) {
+        AffineTransform at = new AffineTransform();
+        at.scale(zoom.getZoomFactor(), zoom.getZoomFactor());
+        g2d.setTransform(at);
     }
 
     public void changeBackground(Color color) {
@@ -100,5 +115,10 @@ public class Canvas extends JPanel{
         this.drawTriangle = false;
         this.drawCircle = drawCircle;
     }
+
+    public Zoom getZoom() {
+        return zoom;
+    }
+
 
 }
