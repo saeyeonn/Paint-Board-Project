@@ -25,7 +25,8 @@ public class TextSpinnerForm extends JSpinner {
                 System.out.println("Spinner value changed: " + value);
             }
 
-            TextSize.applySelectedAttributes();
+            TextSize textSize = new TextSize(fontSizeSpinner);
+            textSize.setting();
         }
     }
 

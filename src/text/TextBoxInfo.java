@@ -1,7 +1,5 @@
 package text;
 
-import javax.swing.JTextField;
-
 public class TextBoxInfo {
     // private static JTextField textBox;
     private int x;
@@ -9,7 +7,7 @@ public class TextBoxInfo {
     private int w;
     private int h;
 
-    private TextBoxInfo() {
+    public TextBoxInfo() {
 
     }
 
@@ -28,10 +26,6 @@ public class TextBoxInfo {
         this.w = w;
         this.h = h;
     }
-
-    // public static JTextField getTextBox() {
-    //     return textBox;
-    // }
 
     public int getX() {
         return x;

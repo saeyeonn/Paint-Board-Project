@@ -27,6 +27,10 @@ public class BoldUnderline {
         }
     }
 
+    public static void detach() {
+        selectedTextField = null;
+    }
+
     // TB 설정 가져와서 맞게 설정
     static void textCilcked(JTextField textField) {
         if (textField != null) {
