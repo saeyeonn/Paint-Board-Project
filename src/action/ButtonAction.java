@@ -1,10 +1,16 @@
 package action;
 
 import domain.button.Button;
+<<<<<<< HEAD
+=======
+import domain.panel.Board;
+>>>>>>> c4783ecfd5390539b393bfb3752884db3dff2b06
 import domain.panel.Canvas;
 import painting.BackgroundColor;
 import repository.ButtonRepository;
 import repository.SelectionRepository;
+import shape.Shape;
+import shape.ShapeMaker;
 import text.TextBox;
 import util.ImageLoading;
 import util.Saving;
@@ -13,10 +19,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+<<<<<<< HEAD
+=======
+import java.util.ArrayList;
+>>>>>>> c4783ecfd5390539b393bfb3752884db3dff2b06
 
 public class ButtonAction implements ActionListener {
+    private Board board;
     private Canvas canvas;
     private static Color color;
+    private ShapeMaker shapeMaker = new ShapeMaker(canvas);
 
     public ButtonAction(Canvas canvas) {
         this.canvas = canvas;
@@ -38,11 +50,8 @@ public class ButtonAction implements ActionListener {
             System.out.println("color 변경 :" + color);
 
             if (button.getName().equals("15_customColor")) {
-                button.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        color = JColorChooser.showDialog(button, "Color Chooser", Color.LIGHT_GRAY);
-                    }
+                button.addActionListener(e1 -> {
+                    color = JColorChooser.showDialog(new Container(), "Color Chooser", Color.LIGHT_GRAY);
                 });
             }
 
@@ -66,6 +75,7 @@ public class ButtonAction implements ActionListener {
         } else if (name.equals("08_backgroundColor")) {
             BackgroundColor backgroundColor = new BackgroundColor(canvas, color);
             System.out.println("이제 배경 칠할거임 -> " + color);
+<<<<<<< HEAD
         } else if (name.equals("17_line")) {
             canvas.setDrawLine(true);
 
@@ -91,6 +101,15 @@ public class ButtonAction implements ActionListener {
 
         } else if (name.equals("zoomIn")) {
             System.out.println("이제 언두 할 거임");
+=======
+        } else if (name.equals("16_reset")) {
+            canvas.repaint();
+        } else if (name.equals("17_line")
+                || name.equals("18_rectangular")
+                || name.equals("19_triangle")
+                || name.equals("20_circle")) {
+            shapeMaker.addShape(name);
+>>>>>>> c4783ecfd5390539b393bfb3752884db3dff2b06
         }
     }
 }

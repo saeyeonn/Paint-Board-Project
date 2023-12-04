@@ -1,6 +1,7 @@
 package domain.panel;
 
 import action.PanelMouseListener;
+<<<<<<< HEAD
 import shape.Shape;
 import zoom.Zoom;
 
@@ -9,14 +10,20 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.AffineTransform;
+=======
+import shape.ShapeMaker;
+
+import javax.swing.*;
+import java.awt.*;
+>>>>>>> c4783ecfd5390539b393bfb3752884db3dff2b06
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Canvas extends JPanel{
     private final JPanel miniBarPanel;
     private Color color = Color.white;
     public BufferedImage bufferedImage;
+<<<<<<< HEAD
     private List<Shape> shapes;
     private boolean drawLine = false;
     private boolean drawRectangle = false;
@@ -26,6 +33,9 @@ public class Canvas extends JPanel{
     private int offsetX; // 화면의 중심 좌표를 나타내는 변수
     private int offsetY;
 
+=======
+    private List<ShapeMaker> drawShapeList;
+>>>>>>> c4783ecfd5390539b393bfb3752884db3dff2b06
 
     public Canvas() {
 
@@ -38,6 +48,7 @@ public class Canvas extends JPanel{
 
         this.miniBarPanel = miniBarPanel;
         PanelMouseListener panelMouseListener = new PanelMouseListener(this);
+<<<<<<< HEAD
         shapes = new ArrayList<>();
         zoom = new Zoom(this);
 
@@ -56,6 +67,8 @@ public class Canvas extends JPanel{
                 }
             }
         });
+=======
+>>>>>>> c4783ecfd5390539b393bfb3752884db3dff2b06
     }
 
     public static Canvas create() {
@@ -64,6 +77,15 @@ public class Canvas extends JPanel{
 
     public Canvas getPanel() {
         return this;
+    }
+
+    public void changeBackground(Color color) {
+        setBackground(color);
+        setVisible(true);
+    }
+
+    public void setDrawShapeList(List<ShapeMaker> drawShapeList) {
+        this.drawShapeList = drawShapeList;
     }
 
     @Override
@@ -76,6 +98,7 @@ public class Canvas extends JPanel{
         if (bufferedImage != null) {
             g.drawImage(bufferedImage, 200, 30, 800, 450,null);
         }
+<<<<<<< HEAD
         for (Shape shape : shapes) {
             shape.draw(g, zoom.getZoomFactor(), offsetX, offsetY);
         }
@@ -139,4 +162,7 @@ public class Canvas extends JPanel{
         repaint();
     }
 
+=======
+      }
+>>>>>>> c4783ecfd5390539b393bfb3752884db3dff2b06
 }

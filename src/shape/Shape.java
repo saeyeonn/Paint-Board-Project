@@ -1,6 +1,7 @@
 package shape;
 
 import java.awt.*;
+<<<<<<< HEAD
 import java.awt.geom.AffineTransform;
 
 public class Shape { // 각 shape의 속성값 저장
@@ -52,4 +53,15 @@ public class Shape { // 각 shape의 속성값 저장
 
         g2d.dispose();
     }
+=======
+
+public interface Shape {
+    void drawBorder(Graphics2D graphics2D);
+    boolean contains(int x, int y);
+    void move(int x, int y);
+    void setSelected(boolean selected);
+    boolean getSelected();
+    Shape getShape();
+
+>>>>>>> c4783ecfd5390539b393bfb3752884db3dff2b06
 }

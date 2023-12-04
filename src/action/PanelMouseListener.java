@@ -3,7 +3,10 @@ package action;
 import domain.panel.Canvas;
 import eraser.PixelEraser;
 import text.TextBox;
+<<<<<<< HEAD
 import zoom.Zoom;
+=======
+>>>>>>> c4783ecfd5390539b393bfb3752884db3dff2b06
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -16,6 +19,8 @@ public class PanelMouseListener {
     private Zoom zoom;
     private PixelEraser pixelEraser;
 
+    private static Shape currentShape;
+    private static List<Shape> shapes= new ArrayList<>();
 
     public PanelMouseListener(Canvas canvas) {
         this.canvas = canvas;
@@ -32,6 +37,8 @@ public class PanelMouseListener {
             public void mouseClicked(MouseEvent e) {
                 textBox.click(e);
                 textBox.arrangeTextBoxes(); // 위치 설정 추가
+
+
             }
 
             @Override
